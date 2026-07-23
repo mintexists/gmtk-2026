@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c56annya0d5jn"]
+
+[node name="ClacTest" type="Node2D" unique_id=864461329]
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=30003172]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 635.0
+offset_bottom = 460.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1634651677]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=1880163456]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+text = "C"
+
+[node name="Button4" type="Button" parent="Panel/VBoxContainer" unique_id=1090211389]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+text = "4
+"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1501005184]
+layout_mode = 2
+size_flags_vertical = 3
+text = "2"
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1295488572]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -580.0
+offset_right = 192.0
+offset_bottom = -557.0
+text = "qweqweqeesaddsadasda"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1054881008]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+text = "ONE "
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button" unique_id=1081196920]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -348.0
+offset_right = 39.0
+offset_bottom = -325.0
+text = "qweqweqeesaddsadasda"
