@@ -111,4 +111,45 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Order!!"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1591332737]
+offset_left = 261.0
+offset_top = -140.0
+offset_right = 413.0
+offset_bottom = -100.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1328508093]
+layout_mode = 2
+text = "2"
+
+[node name="Label" type="Label" parent="HBoxContainer/Label" unique_id=1570216549]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = 11.0
+grow_horizontal = 0
+text = "2"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=310964038]
+layout_mode = 2
+text = "2"
+
+[node name="Label" type="Label" parent="HBoxContainer/Label2" unique_id=473245793]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = 11.0
+grow_horizontal = 0
+text = "2"
+vertical_alignment = 1
+
 [connection signal="pressed" from="Panel/HBoxContainer/HBoxContainer/Button" to="Panel/HBoxContainer/VBoxContainer" method="get_order"]
