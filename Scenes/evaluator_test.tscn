@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://buid2y3te5abk"]
+
+[ext_resource type="Script" uid="uid://dvlel0ryf1pbc" path="res://Scripts/evaluator.gd" id="1_raw2g"]
+
+[node name="EvaluatorTest" type="Node2D" unique_id=1019643390]
+position = Vector2(88.25299, -114.729706)
+scale = Vector2(1.4825866, 0.57116574)
+
+[node name="???" type="Node" parent="." unique_id=300416118]
+script = ExtResource("1_raw2g")
