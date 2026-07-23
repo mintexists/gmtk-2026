@@ -9,7 +9,7 @@ func _to_string():
 	if root:
 		return ''.join(value)
 	return "(" + ''.join(value) + ")"
-func evaluate(order):
+func evaluate(order, debug=false):
 	var out = value.duplicate_deep()
 	for step in order:
 		match step:
@@ -25,14 +25,15 @@ func evaluate(order):
 				out = evaluate_addition(out)
 			"S":
 				out = evaluate_subtraction(out)
-		#print(self)
+		if debug:
+			print(out)
 	return out[0].value
 static func evaluate_parentheses(value, order):
 	var out = []
 	for i in len(value):
 		var token = value[i]
 		if token is Parentheses:
-			out.append(token.evaluate())
+			out.append(Number.new(token.evaluate(order)))
 		else: 
 			out.append(token)
 	return out
@@ -47,7 +48,6 @@ static func evaluate_exponents(value):
 			out.append(token)
 	return out
 static func evaluate_multiplication(value):
-	var out = []
 	var i = 0;
 	while i < len(value):
 		var token = value[i]
@@ -56,15 +56,13 @@ static func evaluate_multiplication(value):
 			var rh = value[i + 1]
 			var exponent = lh.exponent * rh.exponent # TODO make this not evil !!
 			var sum = lh.value * rh.value
-			out.remove_at(i-1)
-			out.append(Number.new(sum, exponent))
-			i+=1
-		else:
-			out.append(token)
+			value[i] = Number.new(sum, exponent)
+			value.remove_at(i + 1)
+			value.remove_at(i - 1)
+			i -= 1
 		i+=1
-	return out
+	return value
 static func evaluate_division(value):
-	var out = []
 	var i = 0;
 	while i < len(value):
 		var token = value[i]
@@ -73,15 +71,14 @@ static func evaluate_division(value):
 			var rh = value[i + 1]
 			var exponent = lh.exponent * rh.exponent # TODO make this not evil !!
 			var sum = lh.value / rh.value
-			out.remove_at(i-1)
-			out.append(Number.new(sum, exponent))
-			i+=1
-		else:
-			out.append(token)
+			value[i] = Number.new(sum, exponent)
+			value.remove_at(i + 1)
+			value.remove_at(i - 1)
+			i -= 1
 		i+=1
-	return out
-static func evaluate_addition(value):
-	var out = []
+	return value
+
+static func evaluate_addition(value: Array):
 	var i = 0;
 	while i < len(value):
 		var token = value[i]
@@ -90,15 +87,13 @@ static func evaluate_addition(value):
 			var rh = value[i + 1]
 			var exponent = lh.exponent * rh.exponent # TODO make this not evil !!
 			var sum = lh.value + rh.value
-			out.remove_at(i-1)
-			out.append(Number.new(sum, exponent))
-			i+=1
-		else:
-			out.append(token)
+			value[i] = Number.new(sum, exponent)
+			value.remove_at(i + 1)
+			value.remove_at(i - 1)
+			i -= 1
 		i+=1
-	return out
+	return value
 static func evaluate_subtraction(value):
-	var out = []
 	var i = 0;
 	while i < len(value):
 		var token = value[i]
@@ -107,11 +102,10 @@ static func evaluate_subtraction(value):
 			var rh = value[i + 1]
 			var exponent = lh.exponent * rh.exponent # TODO make this not evil !!
 			var sum = lh.value - rh.value
-			out.remove_at(i-1)
-			out.append(Number.new(sum, exponent))
-			i+=1
-		else:
-			out.append(token)
+			value[i] = Number.new(sum, exponent)
+			value.remove_at(i + 1)
+			value.remove_at(i - 1)
+			i -= 1
 		i+=1
-	return out
+	return value
 	

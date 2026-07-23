@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buid2y3te5abk"]
 
-[ext_resource type="Script" uid="uid://dvlel0ryf1pbc" path="res://Scripts/evaluator.gd" id="1_raw2g"]
+[ext_resource type="Script" uid="uid://idi8ci7gda8c" path="res://Scripts/evaluator_tests.gd" id="1_raw2g"]
 
 [node name="EvaluatorTest" type="Node2D" unique_id=1019643390]
 position = Vector2(88.25299, -114.729706)

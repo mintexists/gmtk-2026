@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dsbst1y8nsp0s"]
+
+[ext_resource type="Script" uid="uid://day5don85aqcs" path="res://Scripts/TextRenderer.gd" id="1_lc1oi"]
+
+[node name="Test" type="Control" unique_id=154244169]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lc1oi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=391113595]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 2

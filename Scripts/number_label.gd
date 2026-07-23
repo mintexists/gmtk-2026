@@ -1,17 +1,16 @@
-extends Label
+class_name numberLabel
+extends HBoxContainer
 
 var number
-var superScript
+var super_script
 
-@onready
-var superLabel = $SuperScript
+@onready var superLabel = $SuperScript
+@onready var numLabel =$Number
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	text = number
-	superLabel.text = superScript
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func setup(num,sup) -> void:
+	print(superLabel)
+	print("setting number texts")
+	numLabel.text = num
+	if sup != "1":
+		superLabel.text = sup
+	
