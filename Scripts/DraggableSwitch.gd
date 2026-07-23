@@ -22,12 +22,13 @@ func _gui_input(event: InputEvent) -> void:
 		offset_transform_position.y = 0
 	if event is InputEventMouseMotion and isHovering:
 		var idx = self.get_index()
-		offset_transform_position.y += event.screen_relative.y
+		offset_transform_position.y += event.relative.y
 		#print(offset_transform_position.y, " ", self.size.y)
-		if(offset_transform_position.y > (self.size.y)):
+		#print(idx)
+		if(offset_transform_position.y > (self.size.y)) and idx != parent.get_child_count() - 1:
 			offset_transform_position.y -= self.size.y
 			parent.move_child(self,idx+1)
-		elif(offset_transform_position.y < -(self.size.y)):
+		elif(offset_transform_position.y < -(self.size.y)) and idx != 0:
 			offset_transform_position.y += self.size.y
 			parent.move_child(self,idx-1)
 
@@ -37,7 +38,7 @@ func lerp_idx():
 	var prev_idx = current_idx
 	current_idx = self.get_index()
 	var direction = current_idx-prev_idx
-	print(direction)
+	#print(direction)
 	offset_transform_position.y = (size.y*-(direction))/2
 	var tween =  get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
