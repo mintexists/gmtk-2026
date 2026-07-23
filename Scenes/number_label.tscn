@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dnpunllmd1bs7"]
 
+[ext_resource type="Script" uid="uid://dl5fekmi6da72" path="res://Scripts/number_label.gd" id="1_2wtw0"]
+
 [node name="NumberLabel" type="Label" unique_id=1564061424]
 offset_right = 1.0
 offset_bottom = 23.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "0"
+script = ExtResource("1_2wtw0")
 
 [node name="SuperScript" type="Label" parent="." unique_id=1666043593]
 layout_mode = 1

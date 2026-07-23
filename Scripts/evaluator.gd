@@ -43,17 +43,30 @@ func _process(delta: float) -> void:
 	pass
 	
 func parse_equation_string():
-	var string = "64 + 2^2 + 44 / ( 25 / 95 ) / 55"
+	var string = "64 + 2^2 + 44 - ( 25 * 95 ) / 55"
 	var tokens = string.split(" ")
 	var current = Parentheses.new([], true)
+	var prev = current
 	var i = 0;
 	while i < len(tokens):
 		var token = tokens[i]
+		print(token)
 		if token.is_valid_float():
 			current.value.append(Number.new(token.to_float()))
 		if token.contains("^"):
-			
+			var token_split = token.split("^")
+			if token_split[0].is_valid_float() and token_split[1].is_valid_float():
+				current.value.append(Number.new(token_split[0].to_float(), token_split[1].to_float()))
+		if token == "+":
+			current.value.append(Operator.Add.new())
+		if token == "-":
+			current.value.append(Operator.Subtract.new())
+		if token == "/":
+			current.value.append(Operator.Divide.new())
+		if token == "*":
+			current.value.append(Operator.Multiply.new())
 		i+=1
+	return current.value
 	
 	
 func get_all_possible_values(equation: Parentheses):

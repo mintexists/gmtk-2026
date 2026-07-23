@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c56annya0d5jn"]
 
-[ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scenes/OrderGrabber.gd" id="1_o5qye"]
+[ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scripts/OrderGrabber.gd" id="1_o5qye"]
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="1_we1vb"]
 
 [node name="ClacTest" type="Node2D" unique_id=864461329]
