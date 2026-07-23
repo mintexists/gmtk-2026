@@ -1,52 +1,114 @@
 [gd_scene format=3 uid="uid://c56annya0d5jn"]
 
+[ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scenes/OrderGrabber.gd" id="1_o5qye"]
+[ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="1_we1vb"]
+
 [node name="ClacTest" type="Node2D" unique_id=864461329]
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=30003172]
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 635.0
-offset_bottom = 460.0
+offset_right = 585.0
+offset_bottom = 602.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1634651677]
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel" unique_id=687319624]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=1880163456]
+[node name="Control" type="Control" parent="Panel/HBoxContainer" unique_id=530530356]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Control" unique_id=1026224925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Emdas Clac"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1634651677]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_o5qye")
+
+[node name="E" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=149153495]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
-text = "C"
+script = ExtResource("1_we1vb")
+step = "E"
 
-[node name="Button4" type="Button" parent="Panel/VBoxContainer" unique_id=1090211389]
-layout_mode = 2
-size_flags_vertical = 3
-offset_transform_enabled = true
-text = "4
-"
-
-[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1501005184]
-layout_mode = 2
-size_flags_vertical = 3
-text = "2"
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1295488572]
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/E" unique_id=1432427205]
 layout_mode = 0
-offset_left = -2.0
-offset_top = -580.0
-offset_right = 192.0
-offset_bottom = -557.0
-text = "qweqweqeesaddsadasda"
+offset_right = 40.0
+offset_bottom = 23.0
+text = "E"
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1054881008]
+[node name="M" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1873090634]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
-text = "ONE "
+script = ExtResource("1_we1vb")
+step = "M"
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Button" unique_id=1081196920]
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/M" unique_id=1919875865]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -348.0
-offset_right = 39.0
-offset_bottom = -325.0
-text = "qweqweqeesaddsadasda"
+offset_right = 40.0
+offset_bottom = 23.0
+text = "M"
+
+[node name="D" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=2062306728]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+script = ExtResource("1_we1vb")
+step = "D"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/D" unique_id=2053205588]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "D"
+
+[node name="A" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=2100169840]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+script = ExtResource("1_we1vb")
+step = "A"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/A" unique_id=1879545185]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "A"
+
+[node name="S" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=342156043]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+script = ExtResource("1_we1vb")
+step = "S"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/S" unique_id=1085228878]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "S"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer" unique_id=125737208]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/HBoxContainer" unique_id=1237701284]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer/HBoxContainer" unique_id=1542484362]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Submit Order!!"
+
+[connection signal="pressed" from="Panel/HBoxContainer/HBoxContainer/Button" to="Panel/HBoxContainer/VBoxContainer" method="get_order"]
