@@ -8,3 +8,4 @@ scale = Vector2(1.4825866, 0.57116574)
 
 [node name="???" type="Node" parent="." unique_id=300416118]
 script = ExtResource("1_raw2g")
+equation_string = "44 - 56 - 13 * 68 + 29"
