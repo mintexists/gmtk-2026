@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dlltyudo014o6"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="1_di2n8"]
+[ext_resource type="Script" uid="uid://be0st6xjxudsj" path="res://Scripts/printer.gd" id="1_v7fih"]
+
+[node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container")]
+script = ExtResource("1_v7fih")
+paper_container = NodePath("PaperContainer")
+
+[node name="Bottom" type="Sprite2D" parent="." unique_id=767140784]
+position = Vector2(93, 131)
+scale = Vector2(1, 2.8671875)
+texture = ExtResource("1_di2n8")
+
+[node name="PaperContainer" type="Control" parent="." unique_id=1024653783]
+custom_minimum_size = Vector2(450, 260)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
+position = Vector2(64, 130.5)
+scale = Vector2(1, 2.8671875)
+texture = ExtResource("1_di2n8")

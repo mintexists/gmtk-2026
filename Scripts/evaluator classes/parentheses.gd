@@ -3,9 +3,10 @@ class_name Parentheses
 var value: Array
 var root: bool
 var exponent: float
-func _init(v: Array, isRoot: bool = false, exponent: float = 1):
+func _init(v: Array, isRoot: bool = false, exp: float = 1):
 	value = v
 	root = isRoot
+	exponent = exp
 func _to_string():
 	if root:
 		return ''.join(value)
@@ -32,6 +33,29 @@ func evaluate(order, debug=false):
 		if debug:
 			print(out)
 	return out[0].value
+func evaluate_to_depth(order, depth, debug=false):
+	var temp = value.duplicate()
+	var out = []
+	for i in range(depth):
+	#for step in order:
+		var step = order[i]
+		match step:
+			"P":
+				temp = evaluate_parentheses(temp, order)
+			"E":
+				temp = evaluate_exponents(temp)
+			"M":
+				temp = evaluate_multiplication(temp)
+			"D":
+				temp = evaluate_division(temp)
+			"A":
+				temp = evaluate_addition(temp)
+			"S":
+				temp = evaluate_subtraction(temp)
+		if debug:
+			print(temp)
+		out.append(temp.duplicate())
+	return out.map(func (v): return Parentheses.new(v, true))
 static func evaluate_parentheses(value, order):
 	var out = []
 	for i in len(value):
@@ -112,4 +136,23 @@ static func evaluate_subtraction(value):
 			i -= 1
 		i+=1
 	return value
-	
+
+static func generate_random():
+	var root = Parentheses.new([], true)
+	var length = 5
+	var number_range = Vector2(0, 99)
+	var exponent_chance = 0.1;
+	var operators = [Operator.Add, Operator.Subtract, Operator.Multiply, Operator.Divide]
+	for i in length:
+		var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
+		if randf() < exponent_chance:
+			number_to_add.exponent = randi_range(2, 5)
+		root.value.append(number_to_add)
+		root.value.append(operators.pick_random().new())
+		pass
+	var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
+	if randf() < exponent_chance:
+		number_to_add.exponent = randi_range(2, 5)
+	root.value.append(number_to_add)
+	print(root)
+	return root
