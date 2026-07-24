@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dyhec346q8t5b" path="res://Scripts/clock.gd" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c56annya0d5jn" path="res://Scenes/CalcTester.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
 bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
@@ -80,3 +81,11 @@ scale = Vector2(0.615, 0.615)
 position = Vector2(232.99998, 20)
 scale = Vector2(1.5008546, 1.1210936)
 texture = ExtResource("2_qxrlw")
+
+[node name="Paper2" parent="." unique_id=154244169 instance=ExtResource("5_wowpa")]
+offset_left = 160.64441
+offset_top = 239.22653
+offset_right = 612.2687
+offset_bottom = 497.4668
+rotation = -0.14137167
+pivot_offset_ratio = Vector2(0.5, 0.5)
