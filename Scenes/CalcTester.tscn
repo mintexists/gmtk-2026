@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c56annya0d5jn"]
 
 [ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scripts/OrderGrabber.gd" id="1_o5qye"]
+[ext_resource type="Script" uid="uid://nlt7sesgxy54" path="res://Scripts/calcmanager.gd" id="1_tejqp"]
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="1_we1vb"]
 
 [node name="Panel" type="PanelContainer" unique_id=30003172]
@@ -8,6 +9,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 330.0
 offset_bottom = 643.0
+script = ExtResource("1_tejqp")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=687319624]
 layout_mode = 2
@@ -108,7 +110,5 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Order!!"
-
-[node name="ClacTest" type="Node2D" parent="." unique_id=864461329]
 
 [connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="HBoxContainer/VBoxContainer" method="get_order"]

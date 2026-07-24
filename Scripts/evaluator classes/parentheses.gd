@@ -3,9 +3,10 @@ class_name Parentheses
 var value: Array
 var root: bool
 var exponent: float
-func _init(v: Array, isRoot: bool = false, exponent: float = 1):
+func _init(v: Array, isRoot: bool = false, exp: float = 1):
 	value = v
 	root = isRoot
+	exponent = exp
 func _to_string():
 	if root:
 		return ''.join(value)
@@ -32,6 +33,29 @@ func evaluate(order, debug=false):
 		if debug:
 			print(out)
 	return out[0].value
+func evaluate_to_depth(order, depth, debug=false):
+	var temp = value.duplicate()
+	var out = []
+	for i in range(depth):
+	#for step in order:
+		var step = order[i]
+		match step:
+			"P":
+				temp = evaluate_parentheses(temp, order)
+			"E":
+				temp = evaluate_exponents(temp)
+			"M":
+				temp = evaluate_multiplication(temp)
+			"D":
+				temp = evaluate_division(temp)
+			"A":
+				temp = evaluate_addition(temp)
+			"S":
+				temp = evaluate_subtraction(temp)
+		if debug:
+			print(temp)
+		out.append(temp.duplicate())
+	return out.map(func (v): return Parentheses.new(v, true))
 static func evaluate_parentheses(value, order):
 	var out = []
 	for i in len(value):

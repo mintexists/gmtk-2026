@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
-bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+bg_color = Color(0, 0, 0, 0.3882353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dryh"]
 content_margin_left = 10.0
@@ -89,3 +89,4 @@ offset_right = 547.62427
 offset_bottom = 456.24026
 rotation = -0.06981317
 pivot_offset_ratio = Vector2(0.5, 0.5)
+the_String = "20^2 + 44 / 100 - ( 25 * 95 ) - 15"
