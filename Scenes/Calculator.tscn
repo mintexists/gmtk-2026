@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://btay26xtvud8a"]
 
+[ext_resource type="Script" uid="uid://nlt7sesgxy54" path="res://Scripts/calcmanager.gd" id="1_3a7x4"]
 [ext_resource type="FontFile" uid="uid://cwcolcvru1lb5" path="res://Assets/Fonts/G7_Segment_7a.ttf" id="1_cmq5j"]
 [ext_resource type="Theme" uid="uid://cjn8jt7tmb647" path="res://Assets/Themes/calc_slider.tres" id="2_b3o0v"]
+[ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scripts/OrderGrabber.gd" id="4_nh8cv"]
+[ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="5_gs3lg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh8cv"]
+bg_color = Color(0.16711864, 0.16711879, 0.16711873, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmq5j"]
 content_margin_left = 15.0
@@ -28,15 +38,17 @@ content_margin_top = 6.0
 content_margin_right = 5.0
 bg_color = Color(0.66, 0.63943005, 0.5874, 1)
 border_width_left = 2
-border_width_top = 2
+border_width_top = 4
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+shadow_size = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_xpb8p"]
 font = ExtResource("1_cmq5j")
@@ -49,21 +61,48 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_cmq5j"]
 font_size = 12
 font_color = Color(0.623585, 0.623585, 0.62358487, 1)
+shadow_size = 0
+shadow_color = Color(0.21, 0.21, 0.21, 0.7019608)
+shadow_offset = Vector2(-0.5, 1)
 
-[node name="Calculator" type="PanelContainer" unique_id=614944826]
+[node name="Calculator Container" type="Control" unique_id=1065334184 node_paths=PackedStringArray("edmas_container", "Display")]
+custom_minimum_size = Vector2(298, 447)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 298.0
+offset_bottom = 447.0
+mouse_filter = 1
+script = ExtResource("1_3a7x4")
+edmas_container = NodePath("Calculator/HBoxContainer/PanelContainer/VBoxContainer")
+Display = NodePath("Calculator/HBoxContainer/Display")
+
+[node name="Shadow" type="Panel" parent="." unique_id=228190787]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -844.0
-offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(3, 8)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nh8cv")
+
+[node name="Calculator" type="PanelContainer" parent="." unique_id=614944826]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_cmq5j")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=1299270818]
+[node name="HBoxContainer" type="VBoxContainer" parent="Calculator" unique_id=1299270818]
 layout_mode = 2
 
-[node name="Display" type="Label" parent="HBoxContainer" unique_id=329595540]
+[node name="Display" type="Label" parent="Calculator/HBoxContainer" unique_id=329595540]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3a7x4")
 text = "1234567890"
@@ -71,29 +110,18 @@ label_settings = SubResource("LabelSettings_xpb8p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="HBoxContainer" unique_id=1495488525]
+[node name="Name" type="Label" parent="Calculator/HBoxContainer" unique_id=1495488525]
 layout_mode = 2
-text = "EMDAS INSTRUMENTS"
+text = " EMDAS INSTRUMENTS"
 label_settings = SubResource("LabelSettings_cmq5j")
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=165190665]
+[node name="E" type="Panel" parent="Calculator/HBoxContainer" unique_id=1031325806]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 theme = ExtResource("2_b3o0v")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=991550584]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_b3o0v")
-
-[node name="E" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=3246760]
-layout_mode = 2
-size_flags_vertical = 3
-offset_transform_enabled = true
-theme = ExtResource("2_b3o0v")
-
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/E" unique_id=896483493]
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/E" unique_id=627287544]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,87 +129,161 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_b3o0v")
-text = "E"
+bbcode_enabled = true
+text = "[color=#FF4845][b]P[/b][/color]arentheses"
 vertical_alignment = 1
 
-[node name="M" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1140896261]
+[node name="PanelContainer" type="PanelContainer" parent="Calculator/HBoxContainer" unique_id=165190665]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-offset_transform_enabled = true
+mouse_filter = 1
 theme = ExtResource("2_b3o0v")
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/M" unique_id=1685271282]
+[node name="VBoxContainer" type="VBoxContainer" parent="Calculator/HBoxContainer/PanelContainer" unique_id=991550584]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_b3o0v")
+script = ExtResource("4_nh8cv")
+
+[node name="E" type="Panel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer" unique_id=3246760 node_paths=PackedStringArray("parent", "root")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_b3o0v")
+script = ExtResource("5_gs3lg")
+parent = NodePath("..")
+root = NodePath("../../../../..")
+step = " E"
+
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/E" unique_id=2065276953]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+mouse_filter = 2
+theme = ExtResource("2_b3o0v")
+bbcode_enabled = true
+text = "[color=#FF4845][b]E[/b][/color]xponents"
+vertical_alignment = 1
+
+[node name="M" type="Panel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1140896261 node_paths=PackedStringArray("parent", "root")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+script = ExtResource("5_gs3lg")
+parent = NodePath("..")
+root = NodePath("../../../../..")
+step = " M"
+
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/M" unique_id=1101227106]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_b3o0v")
-text = "M"
+bbcode_enabled = true
+text = "[color=#FF4845][b]M[/b][/color]ultiplication"
 vertical_alignment = 1
 
-[node name="D" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1410359917]
+[node name="D" type="Panel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1410359917 node_paths=PackedStringArray("parent", "root")]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 offset_transform_enabled = true
 theme = ExtResource("2_b3o0v")
+script = ExtResource("5_gs3lg")
+parent = NodePath("..")
+root = NodePath("../../../../..")
+step = " D"
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/D" unique_id=581408036]
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/D" unique_id=1210595317]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_b3o0v")
-text = "D"
+bbcode_enabled = true
+text = "[color=#FF4845][b]D[/b][/color]ivision"
 vertical_alignment = 1
 
-[node name="A" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1457427944]
+[node name="A" type="Panel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1457427944 node_paths=PackedStringArray("parent", "root")]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 offset_transform_enabled = true
 theme = ExtResource("2_b3o0v")
+script = ExtResource("5_gs3lg")
+parent = NodePath("..")
+root = NodePath("../../../../..")
+step = " A"
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/A" unique_id=833722543]
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/A" unique_id=560488926]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_b3o0v")
-text = "A"
+bbcode_enabled = true
+text = "[color=#FF4845][b]A[/b][/color]ddition"
 vertical_alignment = 1
 
-[node name="S" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=930753669]
+[node name="S" type="Panel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer" unique_id=930753669 node_paths=PackedStringArray("parent", "root")]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 offset_transform_enabled = true
 theme = ExtResource("2_b3o0v")
+script = ExtResource("5_gs3lg")
+parent = NodePath("..")
+root = NodePath("../../../../..")
+step = " S"
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/S" unique_id=1834929749]
+[node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/S" unique_id=198075030]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_b3o0v")
-text = "S"
+bbcode_enabled = true
+text = "[color=#FF4845][b]S[/b][/color]ubtraction"
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=509548045]
-custom_minimum_size = Vector2(0, 80)
+[node name="HBoxContainer" type="HBoxContainer" parent="Calculator/HBoxContainer" unique_id=509548045]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="HBoxContainer/HBoxContainer" unique_id=2058951065]
+[node name="Panel" type="Panel" parent="Calculator/HBoxContainer/HBoxContainer" unique_id=2058951065]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=1123845094]
+[node name="Button" type="Button" parent="Calculator/HBoxContainer/HBoxContainer" unique_id=1123845094]
+custom_minimum_size = Vector2(0, 40)
+custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Submit Order!!"
+size_flags_vertical = 8
+theme = ExtResource("2_b3o0v")
+text = "Enter"
+
+[connection signal="pressed" from="Calculator/HBoxContainer/HBoxContainer/Button" to="." method="on_confirm_press"]

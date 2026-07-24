@@ -1,13 +1,13 @@
 class_name Calculator
-extends PanelContainer
+extends Control
 
-var isLocked:bool
+signal pressedConfirmed
+
+@export var isLocked:bool = false
 @export var edmas_container:OrderGrabber
-@export var TotalLabel:Label
+@export var Display:Label
 
 
 func on_confirm_press()->void:
 	if !isLocked:
-		var order = edmas_container.get_order()
-		
-	
+		pressedConfirmed.emit()

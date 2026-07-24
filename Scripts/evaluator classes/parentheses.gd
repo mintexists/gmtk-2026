@@ -136,4 +136,34 @@ static func evaluate_subtraction(value):
 			i -= 1
 		i+=1
 	return value
+
+static func generate_random():
+	var root = Parentheses.new([], true)
+	var length = 5
+	var number_range = Vector2(0, 99)
+	var exponent_chance = 0.1;
+	var operators = [Operator.Add, Operator.Subtract, Operator.Multiply, Operator.Divide]
+	for i in length:
+		var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
+		if randf() < exponent_chance:
+			number_to_add.exponent = randi_range(2, 5)
+		root.value.append(number_to_add)
+		root.value.append(operators.pick_random().new())
+		pass
+	var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
+	if randf() < exponent_chance:
+		number_to_add.exponent = randi_range(2, 5)
+	root.value.append(number_to_add)
+	return root
 	
+func to_string_ugly():
+	var out = ""
+	if root:
+		out = ' '.join(value)
+	elif exponent == 1.0:
+		out = "(" + ' '.join(value) + ")"
+	else:
+		out = "(" + ' '.join(value) + ")^" + Number.tostr(exponent)
+	out = out.replace("×", "*")
+	out = out.replace("÷", "/")
+	return out

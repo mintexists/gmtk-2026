@@ -12,6 +12,7 @@ func _ready() -> void:
 	offset_transform_enabled = true
 	current_idx = self.get_index()
 	parent.child_order_changed.connect(lerp_idx)
+
 	
 func _gui_input(event: InputEvent) -> void:
 	if root.isLocked:

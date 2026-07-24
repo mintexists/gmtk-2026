@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dyhec346q8t5b" path="res://Scripts/clock.gd" id="3_3dryh"]
 [ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="3_i6g32"]
-[ext_resource type="PackedScene" uid="uid://c56annya0d5jn" path="res://Scenes/CalcTester.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://btay26xtvud8a" path="res://Scenes/Calculator.tscn" id="8_v158k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
 bg_color = Color(0, 0, 0, 0.3882353)
 
 [node name="Game" type="Node2D" unique_id=1374174835 node_paths=PackedStringArray("clock", "calculator", "score", "day_panel")]
 script = ExtResource("1_ebmjs")
+clockTime = 300
 clock = NodePath("Day Timer")
-calculator = NodePath("ClacTest")
+calculator = NodePath("Calculator")
 score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
 
@@ -48,14 +49,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qxrlw")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=79683003]
 
-[node name="ClacTest" parent="." unique_id=864461329 instance=ExtResource("3_wrm1d")]
-offset_left = 560.0
-offset_top = 310.0
-offset_right = 921.7622
-offset_bottom = 795.45703
-rotation = 0.17453292
-scale = Vector2(0.615, 0.615)
-
 [node name="Score" type="Sprite2D" parent="." unique_id=1321328678]
 position = Vector2(232.99998, 20)
 scale = Vector2(1.5008546, 1.1210936)
@@ -77,5 +70,11 @@ scale = Vector2(1.1, 1.1)
 [node name="Label" parent="Clock2/Node2D" parent_id_path=PackedInt32Array(1275429024, 1470764668) index="0" unique_id=2004372619 node_paths=PackedStringArray("clock")]
 script = ExtResource("3_3dryh")
 clock = NodePath("../../../Day Timer")
+
+[node name="Calculator" parent="." unique_id=614944826 instance=ExtResource("8_v158k")]
+offset_left = 774.0
+offset_top = 162.0
+offset_right = 1072.0
+offset_bottom = 609.0
 
 [editable path="Clock2"]
