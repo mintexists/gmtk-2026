@@ -23,6 +23,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+
 	match(currentState):
 		GameState.DAY_START:
 			if currentState != prevState:
@@ -38,8 +39,8 @@ func _process(delta: float) -> void:
 				calculator.isLocked = true
 				var real_equation = Evaluator.parse_equation_string(current_equation)
 				await printer.spawn_paper(real_equation)
-				await calculator.reset()
-				await calculator.set_display_value(real_equation)
+				calculator.reset()
+				calculator.set_display_value(real_equation)
 				currentState = GameState.PLAY
 				
 		GameState.PLAY:
@@ -47,6 +48,8 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				print("Executing Play State")
 				calculator.isLocked = false
+			var real_equation = Evaluator.parse_equation_string(current_equation)
+			calculator.set_display_value(real_equation)
 		GameState.SCORE:
 			if currentState != prevState:
 				prevState = currentState

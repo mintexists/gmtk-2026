@@ -20,7 +20,7 @@ calculator = NodePath("Calculator")
 score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
 printer = NodePath("Printer2")
-current_equation = "51 - 22^2 * 90"
+current_equation = "26 + 31 * 14 - 7 + 5"
 
 [node name="Day Timer" type="Timer" parent="." unique_id=149863082]
 wait_time = 300.0

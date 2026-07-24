@@ -19,5 +19,5 @@ func run():
 	#var start = Time.get_ticks_usec()
 	#print(Evaluator.get_all_possible_values(parsed))
 	#var end = Time.get_ticks_usec()
-#	var worker_time = (end-start)
+	#	var worker_time = (end-start)
 	#print(worker_time)

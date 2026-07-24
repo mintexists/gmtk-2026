@@ -19,9 +19,13 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		isHovering = true
+		z_index = 1
+		offset_transform_scale = Vector2(1.04, 1.04)
 		pass
 	if event is InputEventMouseButton and event.is_released():
 		isHovering = false
+		z_index = 0
+		offset_transform_scale = Vector2(1, 1)
 		offset_transform_position.y = 0
 	if event is InputEventMouseMotion and isHovering:
 		var idx = self.get_index()
@@ -41,13 +45,17 @@ func lerp_idx():
 	var prev_idx = current_idx
 	current_idx = self.get_index()
 	var direction = current_idx-prev_idx
+	if(direction == 0):
+		return
 	#print(direction)
 	offset_transform_position.y = (size.y*-(direction))/2
+	offset_transform_scale = Vector2(0.85,0.85)
 	if get_tree() == null:
 		return
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self,"offset_transform_scale",Vector2(1.0,1.0),0.07)
 	tween.tween_property(self,"offset_transform_position",Vector2.ZERO,0.07)
 	
 	pass

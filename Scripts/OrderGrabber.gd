@@ -6,7 +6,7 @@ func get_order()->Array:
 	for child in get_children():
 		var current = child as DraggableSwitch
 		order.append(current.step)
-	print(order)
+	#print(order)
 	return order
 
 func reset_order()->void:
