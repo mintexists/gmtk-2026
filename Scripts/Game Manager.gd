@@ -5,7 +5,6 @@ var prevState:GameState
 
 var currentDay: int = 1
 
-var paperScene = preload("res://Scenes/paper.tscn")
 
 @export var clockTime:int 
 
@@ -13,8 +12,10 @@ var paperScene = preload("res://Scenes/paper.tscn")
 @export var calculator: Calculator
 @export var score: Node
 @export var day_panel: DayPanel
+@export var printer: Printer
 
-var current_equation:Parentheses
+@export_multiline("line")
+var current_equation:String 
 
 func _ready() -> void:
 	calculator.pressedConfirmed.connect(func()->void: currentState = GameState.SCORE)
@@ -35,8 +36,10 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				print("Executing Paper State")
 				calculator.isLocked = true
-				await spawn_paper()
-				print(calculator.isLocked)
+				var real_equation = Evaluator.parse_equation_string(current_equation)
+				await printer.spawn_paper(real_equation)
+				await calculator.reset()
+				await calculator.set_display_value(real_equation)
 				currentState = GameState.PLAY
 				
 		GameState.PLAY:

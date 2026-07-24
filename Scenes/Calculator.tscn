@@ -153,7 +153,7 @@ theme = ExtResource("2_b3o0v")
 script = ExtResource("5_gs3lg")
 parent = NodePath("..")
 root = NodePath("../../../../..")
-step = " E"
+step = "E"
 
 [node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/E" unique_id=2065276953]
 custom_minimum_size = Vector2(0, 50)
@@ -180,7 +180,7 @@ theme = ExtResource("2_b3o0v")
 script = ExtResource("5_gs3lg")
 parent = NodePath("..")
 root = NodePath("../../../../..")
-step = " M"
+step = "M"
 
 [node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/M" unique_id=1101227106]
 custom_minimum_size = Vector2(0, 50)
@@ -204,7 +204,7 @@ theme = ExtResource("2_b3o0v")
 script = ExtResource("5_gs3lg")
 parent = NodePath("..")
 root = NodePath("../../../../..")
-step = " D"
+step = "D"
 
 [node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/D" unique_id=1210595317]
 custom_minimum_size = Vector2(0, 50)
@@ -228,7 +228,7 @@ theme = ExtResource("2_b3o0v")
 script = ExtResource("5_gs3lg")
 parent = NodePath("..")
 root = NodePath("../../../../..")
-step = " A"
+step = "A"
 
 [node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/A" unique_id=560488926]
 custom_minimum_size = Vector2(0, 50)
@@ -252,7 +252,7 @@ theme = ExtResource("2_b3o0v")
 script = ExtResource("5_gs3lg")
 parent = NodePath("..")
 root = NodePath("../../../../..")
-step = " S"
+step = "S"
 
 [node name="Label" type="RichTextLabel" parent="Calculator/HBoxContainer/PanelContainer/VBoxContainer/S" unique_id=198075030]
 layout_mode = 1
