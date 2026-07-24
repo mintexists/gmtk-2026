@@ -40,6 +40,8 @@ func lerp_idx():
 	var direction = current_idx-prev_idx
 	#print(direction)
 	offset_transform_position.y = (size.y*-(direction))/2
+	if get_tree() == null:
+		return
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
