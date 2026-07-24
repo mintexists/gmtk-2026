@@ -3,22 +3,20 @@
 [ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scripts/OrderGrabber.gd" id="1_o5qye"]
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="1_we1vb"]
 
-[node name="ClacTest" type="Node2D" unique_id=864461329]
-
-[node name="Panel" type="PanelContainer" parent="." unique_id=30003172]
+[node name="Panel" type="PanelContainer" unique_id=30003172]
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 585.0
-offset_bottom = 602.0
+offset_right = 330.0
+offset_bottom = 643.0
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Panel" unique_id=687319624]
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=687319624]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Panel/HBoxContainer" unique_id=530530356]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=530530356]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Control" unique_id=1026224925]
+[node name="Label" type="Label" parent="HBoxContainer/Control" unique_id=1026224925]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,129 +25,90 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Emdas Clac"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1634651677]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1634651677]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_o5qye")
 
-[node name="E" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=149153495]
+[node name="E" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=149153495]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
 step = "E"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/E" unique_id=1432427205]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/E" unique_id=1432427205]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "E"
 
-[node name="M" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1873090634]
+[node name="M" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1873090634]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
 step = "M"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/M" unique_id=1919875865]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/M" unique_id=1919875865]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "M"
 
-[node name="D" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=2062306728]
+[node name="D" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2062306728]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
 step = "D"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/D" unique_id=2053205588]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/D" unique_id=2053205588]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "D"
 
-[node name="A" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=2100169840]
+[node name="A" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2100169840]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
 step = "A"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/A" unique_id=1879545185]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/A" unique_id=1879545185]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "A"
 
-[node name="S" type="Panel" parent="Panel/HBoxContainer/VBoxContainer" unique_id=342156043]
+[node name="S" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=342156043]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
 step = "S"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer/S" unique_id=1085228878]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/S" unique_id=1085228878]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "S"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer" unique_id=125737208]
-custom_minimum_size = Vector2(0, 100)
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=125737208]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/HBoxContainer/HBoxContainer" unique_id=1237701284]
+[node name="Panel" type="Panel" parent="HBoxContainer/HBoxContainer" unique_id=1237701284]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Panel/HBoxContainer/HBoxContainer" unique_id=1542484362]
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=1542484362]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Order!!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1591332737]
-offset_left = 261.0
-offset_top = -140.0
-offset_right = 413.0
-offset_bottom = -100.0
-theme_override_constants/separation = 0
+[node name="ClacTest" type="Node2D" parent="." unique_id=864461329]
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=1328508093]
-layout_mode = 2
-text = "2"
-
-[node name="Label" type="Label" parent="HBoxContainer/Label" unique_id=1570216549]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -4.0
-offset_top = -12.0
-offset_right = 6.0
-offset_bottom = 11.0
-grow_horizontal = 0
-text = "2"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="HBoxContainer" unique_id=310964038]
-layout_mode = 2
-text = "2"
-
-[node name="Label" type="Label" parent="HBoxContainer/Label2" unique_id=473245793]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -4.0
-offset_top = -12.0
-offset_right = 6.0
-offset_bottom = 11.0
-grow_horizontal = 0
-text = "2"
-vertical_alignment = 1
-
-[connection signal="pressed" from="Panel/HBoxContainer/HBoxContainer/Button" to="Panel/HBoxContainer/VBoxContainer" method="get_order"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="HBoxContainer/VBoxContainer" method="get_order"]

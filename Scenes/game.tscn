@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://yicge48108e0"]
+
+[ext_resource type="Script" uid="uid://b5dv7yio6avp1" path="res://Scripts/Game Manager.gd" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dyhec346q8t5b" path="res://Scripts/clock.gd" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://c56annya0d5jn" path="res://Scenes/CalcTester.tscn" id="3_wrm1d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dryh"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.11558022, 0.11558025, 0.11558015, 1)
+border_width_left = 2
+border_width_top = 10
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.21437684, 0.21437687, 0.21437669, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D" unique_id=1374174835]
+script = ExtResource("1_ebmjs")
+
+[node name="Day Timer" type="Timer" parent="." unique_id=149863082]
+wait_time = 300.0
+autostart = true
+
+[node name="Printer" type="Sprite2D" parent="." unique_id=1143164504]
+position = Vector2(-19.000061, 333)
+scale = Vector2(1.1318358, 3.6103513)
+texture = ExtResource("2_qxrlw")
+
+[node name="Paper" type="Sprite2D" parent="." unique_id=549019192]
+position = Vector2(372.99997, 369)
+rotation = -0.052359886
+scale = Vector2(4.1162105, 2.836914)
+texture = ExtResource("2_qxrlw")
+
+[node name="Between Days UI" type="CanvasLayer" parent="." unique_id=1490903061]
+visible = false
+
+[node name="Panel" type="Panel" parent="Between Days UI" unique_id=1747411917]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxrlw")
+
+[node name="Clock" type="Label" parent="." unique_id=1464290066 node_paths=PackedStringArray("clock")]
+offset_left = 869.0
+offset_top = 22.0
+offset_right = 1053.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_3dryh")
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_3dryh")
+clock = NodePath("../Day Timer")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=79683003]
+
+[node name="ClacTest" parent="." unique_id=864461329 instance=ExtResource("3_wrm1d")]
+offset_left = 832.0
+offset_top = 204.0
+offset_right = 1193.7622
+offset_bottom = 689.45703
+rotation = 0.17453292
+scale = Vector2(0.615, 0.615)
+
+[node name="Score" type="Sprite2D" parent="." unique_id=1321328678]
+position = Vector2(232.99998, 20)
+scale = Vector2(1.5008546, 1.1210936)
+texture = ExtResource("2_qxrlw")

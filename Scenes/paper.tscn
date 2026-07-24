@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dsbst1y8nsp0s"]
+
+[ext_resource type="Script" uid="uid://day5don85aqcs" path="res://Scripts/TextRenderer.gd" id="1_c7gsp"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_322pb"]
+
+[node name="Paper" type="Control" unique_id=154244169 node_paths=PackedStringArray("target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -813.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7gsp")
+target = NodePath("HBoxContainer")
+the_String = "64 + 2^2 + 44 - ( 25 * 95 ) / 100"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1463469253]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_322pb")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=391113595]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

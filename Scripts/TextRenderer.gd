@@ -1,16 +1,18 @@
 extends Control
 
 var numberLabel = preload("res://Scenes/number_label.tscn")
-var operatorLabel = preload("res://Scenes/operator.tscn")
-var target:Node
+@export var target:Node
 var root
-var equation: Parentheses = Evaluator.parse_equation_string("64 + 2^2 + 44 - ( 25 * 95 ) / 100")
+@export_multiline()
+var the_String:String
+var equation: Parentheses
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	root = get_tree().get_root()
-	target = $HBoxContainer
+	equation = Evaluator.parse_equation_string("64 + 2^2 + 44 - ( 25 * 95 ) / 100")
 	_render(target,equation)
+	
 	pass # Replace with function body.
 
 func _render(target:Node,equation:Parentheses) -> void:

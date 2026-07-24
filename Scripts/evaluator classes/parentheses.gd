@@ -2,13 +2,17 @@ class_name Parentheses
 
 var value: Array
 var root: bool
-func _init(v: Array, isRoot: bool = false):
+var exponent: float
+func _init(v: Array, isRoot: bool = false, exponent: float = 1):
 	value = v
 	root = isRoot
 func _to_string():
 	if root:
 		return ''.join(value)
-	return "(" + ''.join(value) + ")"
+	if exponent == 1.0:
+		return "(" + ''.join(value) + ")"
+	else:
+		return "(" + ''.join(value) + ")^" + Number.tostr(exponent)
 func evaluate(order, debug=false):
 	var out = value.duplicate_deep()
 	for step in order:
@@ -33,7 +37,7 @@ static func evaluate_parentheses(value, order):
 	for i in len(value):
 		var token = value[i]
 		if token is Parentheses:
-			out.append(Number.new(token.evaluate(order)))
+			out.append(Number.new(token.evaluate(order), token.exponent))
 		else: 
 			out.append(token)
 	return out

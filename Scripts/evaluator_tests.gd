@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	#print(get_permutations(["P", "E", "M", "D", "A", "S"]))
 
-	var parsed = Evaluator.parse_equation_string("64 + 2^2 + 44 - ( 25 * 95 ) / 100")
+	var parsed = Evaluator.parse_equation_string("64 + 2^2 + 44 - ( 25 * 95 )^2 / 100")
 	#var parsed = Evaluator.parse_equation_string("1 + 2 + 3")
 	print(parsed)
 	print(parsed.evaluate(order))

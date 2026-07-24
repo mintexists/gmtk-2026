@@ -9,10 +9,6 @@ static func parse_equation_string(string: String):
 		var token = tokens[i]
 		if token.is_valid_float():
 			current.value.append(Number.new(token.to_float()))
-		if token.contains("^"):
-			var token_split = token.split("^")
-			if token_split[0].is_valid_float() and token_split[1].is_valid_float():
-				current.value.append(Number.new(token_split[0].to_float(), token_split[1].to_float()))
 		if token == "+":
 			current.value.append(Operator.Add.new())
 		if token == "-":
@@ -28,6 +24,14 @@ static func parse_equation_string(string: String):
 			current = new
 		if token == ")":
 			current = prev
+		if token.contains("^"):
+			if token.begins_with(")"):
+				current.exponent = token.split("^")[1].to_float()
+				current = prev
+			else:
+				var token_split = token.split("^")
+				if token_split[0].is_valid_float() and token_split[1].is_valid_float():
+					current.value.append(Number.new(token_split[0].to_float(), token_split[1].to_float()))
 		i+=1
 	return current
 	
@@ -45,11 +49,11 @@ static func get_all_possible_values(equation: Parentheses):
 	
 static func _get_permutations(array: Array):
 	var results = []
-	permute(results, array, 0)
+	_permute(results, array, 0)
 	return results
 	
 # https://www.geeksforgeeks.org/dsa/print-all-possible-permutations-of-an-array-vector-without-duplicates-using-backtracking/
-static func permute(results: Array, array: Array, idx: int):
+static func _permute(results: Array, array: Array, idx: int):
 	if (idx == len(array)):
 		results.append(array.duplicate())
 		return
@@ -58,7 +62,7 @@ static func permute(results: Array, array: Array, idx: int):
 		var temp = array[i]
 		array[i] = array[idx]
 		array[idx] = temp
-		permute(results, array, idx + 1)
+		_permute(results, array, idx + 1)
 		temp = array[i]
 		array[i] = array[idx]
 		array[idx] = temp
