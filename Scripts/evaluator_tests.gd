@@ -19,13 +19,13 @@ func _ready() -> void:
 	
 	#print(get_permutations(["P", "E", "M", "D", "A", "S"]))
 
-	var parsed = Evaluator.parse_equation_string("64 + 2^2 + 44 - ( 25 * 95 )^2 / 100")
+	var parsed = Evaluator.parse_equation_string("44 - 56 - 13 * 68 + 29")
 	#var parsed = Evaluator.parse_equation_string("1 + 2 + 3")
 	print(parsed)
 	print(parsed.evaluate(order))
 	print(parsed.evaluate_to_depth(order, 6))
 	#var start = Time.get_ticks_usec()
-	#print(Evaluator.get_all_possible_values(parsed))
+	print(Evaluator.get_all_possible_values(parsed))
 	#var end = Time.get_ticks_usec()
 #	var worker_time = (end-start)
 	#print(worker_time)
