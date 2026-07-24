@@ -35,7 +35,7 @@ scale = Vector2(1.1318358, 3.6103513)
 texture = ExtResource("2_qxrlw")
 
 [node name="Paper" type="Sprite2D" parent="." unique_id=549019192]
-position = Vector2(372.99997, 369)
+position = Vector2(288.99997, 885)
 rotation = -0.052359886
 scale = Vector2(4.1162105, 2.836914)
 texture = ExtResource("2_qxrlw")
@@ -83,9 +83,9 @@ scale = Vector2(1.5008546, 1.1210936)
 texture = ExtResource("2_qxrlw")
 
 [node name="Paper2" parent="." unique_id=154244169 instance=ExtResource("5_wowpa")]
-offset_left = 160.64441
-offset_top = 239.22653
-offset_right = 612.2687
-offset_bottom = 497.4668
-rotation = -0.14137167
+offset_left = 96.0
+offset_top = 198.0
+offset_right = 547.62427
+offset_bottom = 456.24026
+rotation = -0.06981317
 pivot_offset_ratio = Vector2(0.5, 0.5)
