@@ -1,3 +1,4 @@
+class_name OrderGrabber
 extends VBoxContainer
 
 func get_order()->Array:
@@ -7,3 +8,4 @@ func get_order()->Array:
 		order.append(current.step)
 	print(order)
 	return order
+	

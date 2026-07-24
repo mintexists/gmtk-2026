@@ -1,3 +1,4 @@
+class_name paper
 extends Control
 
 var numberLabel = preload("res://Scenes/number_label.tscn")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bpfpj37gduawr"]
+
+[ext_resource type="Texture2D" uid="uid://bvls2qodh5p8h" path="res://Assets/clock.svg" id="1_ml741"]
+[ext_resource type="FontFile" uid="uid://cwcolcvru1lb5" path="res://Assets/Fonts/G7_Segment_7a.ttf" id="2_lux5t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmhrh"]
+font = ExtResource("2_lux5t")
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+outline_size = 7
+outline_color = Color(1, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 0)
+
+[node name="Clock" type="Node2D" unique_id=1275429024]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=339602298]
+texture = ExtResource("1_ml741")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1470764668]
+rotation = 1.5707964
+skew = 0.18675023
+
+[node name="Label" type="Label" parent="Node2D" unique_id=2004372619]
+offset_left = -24.58102
+offset_top = 88.25006
+offset_right = 125.418976
+offset_bottom = 156.25006
+rotation = -1.5707964
+text = "01:23"
+label_settings = SubResource("LabelSettings_cmhrh")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,11 +1,13 @@
 class_name Calculator
 extends PanelContainer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var isLocked:bool
+@export var edmas_container:OrderGrabber
+@export var TotalLabel:Label
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_confirm_press()->void:
+	if !isLocked:
+		var order = edmas_container.get_order()
+		
+	

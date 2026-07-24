@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://btay26xtvud8a"]
+
+[ext_resource type="FontFile" uid="uid://cwcolcvru1lb5" path="res://Assets/Fonts/G7_Segment_7a.ttf" id="1_cmq5j"]
+[ext_resource type="Theme" uid="uid://cjn8jt7tmb647" path="res://Assets/Themes/calc_slider.tres" id="2_b3o0v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmq5j"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.361, 0.36448333, 0.38, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.1576586, 0.15765864, 0.15765864, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a7x4"]
+content_margin_left = 5.0
+content_margin_top = 6.0
+content_margin_right = 5.0
+bg_color = Color(0.66, 0.63943005, 0.5874, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xpb8p"]
+font = ExtResource("1_cmq5j")
+font_size = 48
+font_color = Color(0.11363476, 0.11363483, 0.11363479, 1)
+shadow_size = 0
+shadow_color = Color(0.12, 0.12, 0.12, 0.45490196)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmq5j"]
+font_size = 12
+font_color = Color(0.623585, 0.623585, 0.62358487, 1)
+
+[node name="Calculator" type="PanelContainer" unique_id=614944826]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -844.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmq5j")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=1299270818]
+layout_mode = 2
+
+[node name="Display" type="Label" parent="HBoxContainer" unique_id=329595540]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3a7x4")
+text = "1234567890"
+label_settings = SubResource("LabelSettings_xpb8p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="HBoxContainer" unique_id=1495488525]
+layout_mode = 2
+text = "EMDAS INSTRUMENTS"
+label_settings = SubResource("LabelSettings_cmq5j")
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=165190665]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_b3o0v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=991550584]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_b3o0v")
+
+[node name="E" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=3246760]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/E" unique_id=896483493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b3o0v")
+text = "E"
+vertical_alignment = 1
+
+[node name="M" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1140896261]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/M" unique_id=1685271282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b3o0v")
+text = "M"
+vertical_alignment = 1
+
+[node name="D" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1410359917]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/D" unique_id=581408036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b3o0v")
+text = "D"
+vertical_alignment = 1
+
+[node name="A" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1457427944]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/A" unique_id=833722543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b3o0v")
+text = "A"
+vertical_alignment = 1
+
+[node name="S" type="Panel" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=930753669]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme = ExtResource("2_b3o0v")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/S" unique_id=1834929749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b3o0v")
+text = "S"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=509548045]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/HBoxContainer" unique_id=2058951065]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=1123845094]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Submit Order!!"

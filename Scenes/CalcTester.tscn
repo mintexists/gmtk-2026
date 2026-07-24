@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://nlt7sesgxy54" path="res://Scripts/calcmanager.gd" id="1_tejqp"]
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="1_we1vb"]
 
-[node name="Panel" type="PanelContainer" unique_id=30003172]
+[node name="Panel" type="PanelContainer" unique_id=30003172 node_paths=PackedStringArray("edmas_container", "TotalLabel")]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 330.0
 offset_bottom = 643.0
 script = ExtResource("1_tejqp")
+edmas_container = NodePath("HBoxContainer/VBoxContainer")
+TotalLabel = NodePath("HBoxContainer/Control/Label")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=687319624]
 layout_mode = 2
@@ -32,11 +34,13 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_o5qye")
 
-[node name="E" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=149153495]
+[node name="E" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=149153495 node_paths=PackedStringArray("parent", "root")]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
+parent = NodePath("..")
+root = NodePath("../../..")
 step = "E"
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/E" unique_id=1432427205]
@@ -45,11 +49,13 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "E"
 
-[node name="M" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1873090634]
+[node name="M" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1873090634 node_paths=PackedStringArray("parent", "root")]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
+parent = NodePath("..")
+root = NodePath("../../..")
 step = "M"
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/M" unique_id=1919875865]
@@ -58,11 +64,13 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "M"
 
-[node name="D" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2062306728]
+[node name="D" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2062306728 node_paths=PackedStringArray("parent", "root")]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
+parent = NodePath("..")
+root = NodePath("../../..")
 step = "D"
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/D" unique_id=2053205588]
@@ -71,11 +79,13 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "D"
 
-[node name="A" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2100169840]
+[node name="A" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=2100169840 node_paths=PackedStringArray("parent", "root")]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
+parent = NodePath("..")
+root = NodePath("../../..")
 step = "A"
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/A" unique_id=1879545185]
@@ -84,11 +94,13 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "A"
 
-[node name="S" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=342156043]
+[node name="S" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=342156043 node_paths=PackedStringArray("parent", "root")]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 script = ExtResource("1_we1vb")
+parent = NodePath("..")
+root = NodePath("../../..")
 step = "S"
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/S" unique_id=1085228878]
@@ -111,4 +123,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Order!!"
 
-[connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="HBoxContainer/VBoxContainer" method="get_order"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/Button" to="." method="on_confirm_press"]
