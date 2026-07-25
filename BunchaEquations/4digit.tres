@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BunchaEquations" format=3 uid="uid://vly45estbsia"]
+
+[ext_resource type="Script" uid="uid://fg30pdldmm6s" path="res://Scripts/buncha_equations.gd" id="1_vgbrv"]
+
+[resource]
+script = ExtResource("1_vgbrv")
+equations = Array[String](["20 / 15 * 42 + 73", "71 * 21 * 98 - 71^2", "5 - 11 / 4 + 3", "43 / 69 - 96 + 99^2", "10 * 5 - 99 + 83", "68^2 / 66 - 32 + 81", "15 - 3 + 19 * 58", "33 * 97^2 / 17 - 48", "86 - 69 + 19 / 50", "25 + 43 - 60^3 + 61", "( 66 - 18 + 26 ) - 87 * 15"])
+metadata/_custom_type_script = "uid://fg30pdldmm6s"

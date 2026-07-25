@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="Script" uid="uid://b5dv7yio6avp1" path="res://Scripts/Game Manager.gd" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://fg30pdldmm6s" path="res://Scripts/buncha_equations.gd" id="2_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dyhec346q8t5b" path="res://Scripts/clock.gd" id="3_3dryh"]
 [ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="3_i6g32"]
+[ext_resource type="Resource" uid="uid://6fhkojflnm0" path="res://BunchaEquations/5digit.tres" id="3_rku1e"]
+[ext_resource type="Resource" uid="uid://dklgmsaqloe5m" path="res://BunchaEquations/8digit.tres" id="4_rfjv2"]
+[ext_resource type="Resource" uid="uid://cfv40mkraee7h" path="res://BunchaEquations/10+digit.tres" id="5_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
+[ext_resource type="Resource" uid="uid://vly45estbsia" path="res://BunchaEquations/4digit.tres" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="8_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://btay26xtvud8a" path="res://Scenes/Calculator.tscn" id="8_v158k"]
@@ -20,7 +25,7 @@ calculator = NodePath("Calculator")
 score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
 printer = NodePath("Printer2")
-current_equation = "26 + 31 * 14 - 7 + 5"
+equationSheets = Array[ExtResource("2_o5yvi")]([ExtResource("3_rku1e"), ExtResource("4_rfjv2"), ExtResource("5_rfjv2"), ExtResource("6_1phco")])
 
 [node name="Day Timer" type="Timer" parent="." unique_id=149863082]
 wait_time = 300.0
@@ -54,10 +59,10 @@ texture = ExtResource("2_qxrlw")
 
 [node name="Paper2" parent="." unique_id=154244169 instance=ExtResource("5_wowpa")]
 visible = false
-offset_left = 96.0
-offset_top = 198.0
-offset_right = 547.62427
-offset_bottom = 456.24026
+offset_left = 156.0
+offset_top = 209.00002
+offset_right = 607.62427
+offset_bottom = 467.2403
 rotation = -0.06981317
 pivot_offset_ratio = Vector2(0.5, 0.5)
 

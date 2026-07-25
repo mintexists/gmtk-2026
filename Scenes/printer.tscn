@@ -6,6 +6,7 @@
 [node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container")]
 script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
+move_to_position = Vector2(160, 100)
 
 [node name="Bottom" type="Sprite2D" parent="." unique_id=767140784]
 position = Vector2(93, 131)

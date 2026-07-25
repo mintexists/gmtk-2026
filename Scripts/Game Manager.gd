@@ -14,7 +14,9 @@ var currentPaper: paper
 @export var day_panel: DayPanel
 @export var printer: Printer
 
-@export_multiline("line")
+@export
+var equationSheets : Array[BunchaEquations]
+
 var current_equation:String 
 
 func _ready() -> void:
@@ -31,7 +33,7 @@ func rerender_display()-> void:
 		var depth = real_equation.evaluate_to_depth(calculator.get_order(),6)
 		currentPaper.clear()
 		for i in len(depth): 
-			currentPaper.render(i,depth[i])
+			currentPaper.render(i+1,depth[i])
 
 func _process(delta: float) -> void:
 
@@ -48,8 +50,10 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				print("Executing Paper State")
 				calculator.isLocked = true
-				var real_equation = Evaluator.parse_equation_string(current_equation)
-				var newPaper = await printer.spawn_paper(real_equation)
+				current_equation = get_equation()
+				print("current equation",current_equation)
+				var token_equation = Evaluator.parse_equation_string(current_equation)
+				var newPaper = await printer.spawn_paper(token_equation)
 				currentPaper = newPaper
 				calculator.reset()
 				currentState = GameState.PLAY
@@ -85,3 +89,8 @@ func score_points():
 	await get_tree().create_timer(5).timeout
 	print("Done")
 	pass
+
+func get_equation() -> String:
+	var sheet = randi() % equationSheets.size()
+	var sheetSize = equationSheets[sheet].equations.size()
+	return equationSheets[sheet].equations.pick_random()

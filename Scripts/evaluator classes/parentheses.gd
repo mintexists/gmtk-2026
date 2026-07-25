@@ -3,11 +3,15 @@ class_name Parentheses
 var value: Array
 var root: bool
 var exponent: float
-func _init(v: Array, isRoot: bool = false, exp: float = 1):
+var ugly: bool
+func _init(v: Array, isRoot: bool = false, exp: float = 1, isUgly = false):
 	value = v
 	root = isRoot
 	exponent = exp
+	ugly = isUgly
 func _to_string():
+	if ugly:
+		return to_string_ugly()
 	if root:
 		return ''.join(value)
 	if exponent == 1.0:
@@ -143,19 +147,34 @@ static func generate_random(length):
 	var prev = root
 	var number_range = Vector2(0, 99)
 	var exponent_chance = 0.1;
-	var parentheses_chance = 0.1
-	var parentheses_length_options = [2, 2, 3]
+	var parentheses_chance = .1
+	var parentheses_length_options = [1, 1, 2]
 	var parentheses_counter = 0
+	var parentheses_max = 0
 	var operators = [Operator.Add, Operator.Subtract, Operator.Multiply, Operator.Divide]
 	for i in length - 1:
-		if randf() < parentheses_chance:
-			current
+		if current == root and randf() < parentheses_chance:
+			prev = current
+			current = Parentheses.new([], false, 1, true)
+			prev.value.append(current)
+			parentheses_counter = 0
+			parentheses_max = parentheses_length_options.pick_random()
 		var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
 		if randf() < exponent_chance:
 			number_to_add.exponent = randi_range(2, 3)
 		current.value.append(number_to_add)
 		current.value.append(operators.pick_random().new())
+		if current != root and (parentheses_counter >= parentheses_max or i == length - 2):
+			number_to_add = Number.new(randi_range(number_range.x, number_range.y))
+			if randf() < exponent_chance:
+				number_to_add.exponent = randi_range(2, 3)
+			current.value.append(number_to_add)
+			current = prev
+			current.value.append(operators.pick_random().new())
+		parentheses_counter += 1
 		pass
+	if root != current:
+		current = root
 	var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
 	if randf() < exponent_chance:
 		number_to_add.exponent = randi_range(2, 3)
@@ -167,9 +186,9 @@ func to_string_ugly():
 	if root:
 		out = ' '.join(value)
 	elif exponent == 1.0:
-		out = "(" + ' '.join(value) + ")"
+		out = "( " + ' '.join(value) + " )"
 	else:
-		out = "(" + ' '.join(value) + ")^" + Number.tostr(exponent)
+		out = "( " + ' '.join(value) + " )^" + Number.tostr(exponent)
 	out = out.replace("×", "*")
 	out = out.replace("÷", "/")
 	return out
