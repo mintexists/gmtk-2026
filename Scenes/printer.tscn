@@ -54,7 +54,6 @@ expand_margin_bottom = 17.0
 [node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container")]
 script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
-move_to_position = Vector2(160, 100)
 
 [node name="Shadows" type="CanvasGroup" parent="." unique_id=348840879]
 self_modulate = Color(1, 1, 1, 0.24705882)
@@ -65,10 +64,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = -75.0
-offset_right = 187.0
-offset_bottom = 141.0
+offset_left = 58.0
+offset_top = -114.0
+offset_right = 185.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c5w5y")
@@ -80,9 +79,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.0
-offset_top = 5.0
+offset_top = 62.0
 offset_right = 64.0
-offset_bottom = 221.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c5w5y")
@@ -94,9 +93,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 39.5
-offset_top = -108.0
+offset_top = -148.0
 offset_right = 166.5
-offset_bottom = 108.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_v7fih")
@@ -108,9 +107,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.5
-offset_top = -180.0
+offset_top = -214.0
 offset_right = 63.5
-offset_bottom = 180.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
@@ -121,13 +120,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = 116.0
-offset_right = 37.5
-offset_bottom = 162.0
+offset_left = -89.0
+offset_top = 149.0
+offset_right = 38.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Side" type="Panel" parent="." unique_id=860688012]
 anchors_preset = 8
@@ -136,12 +136,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -89.5
-offset_top = -196.0
+offset_top = -232.0
 offset_right = 37.5
-offset_bottom = -142.0
+offset_bottom = -178.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Bottom" type="Sprite2D" parent="." unique_id=767140784]
 visible = false
@@ -149,13 +150,7 @@ position = Vector2(4, -8)
 scale = Vector2(1, 2.8671875)
 texture = ExtResource("1_di2n8")
 
-[node name="PaperContainer" type="Control" parent="." unique_id=1024653783]
-custom_minimum_size = Vector2(450, 260)
-layout_mode = 3
-anchors_preset = 0
-offset_top = -128.0
-offset_right = 450.0
-offset_bottom = 132.0
+[node name="PaperContainer" type="Node2D" parent="." unique_id=691546838]
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
 visible = false
@@ -170,9 +165,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -103.0
-offset_top = -217.0
+offset_top = -250.0
 offset_right = 24.0
-offset_bottom = 143.0
+offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulkxg")

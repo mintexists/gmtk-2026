@@ -7,6 +7,15 @@ signal draggable_moved
 @export var isLocked:bool = false
 @export var edmas_container:OrderGrabber
 @export var Display:Label
+@export var EnterButton: Button
+
+func lock():
+	isLocked = true
+	EnterButton.disabled = true
+	
+func unlock():
+	isLocked = false
+	EnterButton.disabled = false
 
 func _ready() -> void:
 	edmas_container.child_order_changed.connect(func()->void: draggable_moved.emit())

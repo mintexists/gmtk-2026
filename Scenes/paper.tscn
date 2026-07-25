@@ -5,12 +5,13 @@
 [ext_resource type="Theme" uid="uid://vhl6hrk0yd1b" path="res://PreviewText.tres" id="3_322pb"]
 
 [node name="Paper" type="Control" unique_id=154244169 node_paths=PackedStringArray("textContainer")]
+custom_minimum_size = Vector2(450, 260)
+custom_maximum_size = Vector2(450, 260)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = -450.0
+offset_top = -130.0
+offset_bottom = 130.0
 offset_transform_enabled = true
 script = ExtResource("1_c7gsp")
 textContainer = NodePath("VBoxContainer")

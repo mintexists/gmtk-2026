@@ -71,7 +71,7 @@ shadow_size = 0
 shadow_color = Color(0.21, 0.21, 0.21, 0.7019608)
 shadow_offset = Vector2(-0.5, 1)
 
-[node name="Calculator Container" type="Control" unique_id=1065334184 node_paths=PackedStringArray("edmas_container", "Display")]
+[node name="Calculator Container" type="Control" unique_id=1065334184 node_paths=PackedStringArray("edmas_container", "Display", "EnterButton")]
 custom_minimum_size = Vector2(298, 447)
 layout_mode = 3
 anchors_preset = 0
@@ -81,6 +81,7 @@ mouse_filter = 1
 script = ExtResource("1_3a7x4")
 edmas_container = NodePath("Calculator/HBoxContainer/PanelContainer/VBoxContainer")
 Display = NodePath("Calculator/HBoxContainer/Display")
+EnterButton = NodePath("Calculator/HBoxContainer/HBoxContainer/Button")
 
 [node name="Shadow2" type="Panel" parent="." unique_id=2010785204]
 layout_mode = 1

@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 			if currentState != prevState:
 				prevState = currentState
 				print("Executing Paper State")
-				calculator.isLocked = true
+				calculator.lock()
 				current_equation = get_equation()
 				print("current equation",current_equation)
 				var token_equation = Evaluator.parse_equation_string(current_equation)
@@ -62,11 +62,11 @@ func _process(delta: float) -> void:
 			if currentState != prevState:
 				prevState = currentState
 				print("Executing Play State")
-				calculator.isLocked = false
+				calculator.unlock()
 		GameState.SCORE:
 			if currentState != prevState:
 				prevState = currentState
-				calculator.isLocked = true
+				calculator.lock()
 				print("Executing Score State")
 				await score_points()
 				currentState = GameState.NEXT_PAPER
