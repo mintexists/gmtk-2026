@@ -66,6 +66,7 @@ grow_vertical = 2
 
 [node name="0" type="HBoxContainer" parent="VBoxContainer" unique_id=391113595]
 modulate = Color(0, 0, 0, 1)
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 

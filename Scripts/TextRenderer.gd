@@ -18,8 +18,9 @@ func get_inital_answer(equation:Parentheses):
 
 func clear() -> void:
 	for rows in textContainer.get_children():
-		for items in rows.get_children():
-			items.free()
+		if(rows.get_index()!=0):
+			for items in rows.get_children():
+				items.free()
 		 
 
 func render(target:int,equation:Parentheses) -> void:

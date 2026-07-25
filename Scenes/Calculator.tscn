@@ -7,7 +7,14 @@
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="5_gs3lg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh8cv"]
-bg_color = Color(0.16711864, 0.16711879, 0.16711873, 1)
+bg_color = Color(0.17, 0.17, 0.17, 0.22352941)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs3lg"]
+bg_color = Color(0.17, 0.17, 0.17, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -29,7 +36,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_color = Color(0.1576586, 0.15765864, 0.15765864, 1)
-shadow_size = 1
 shadow_offset = Vector2(0, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a7x4"]
@@ -76,6 +82,18 @@ script = ExtResource("1_3a7x4")
 edmas_container = NodePath("Calculator/HBoxContainer/PanelContainer/VBoxContainer")
 Display = NodePath("Calculator/HBoxContainer/Display")
 
+[node name="Shadow2" type="Panel" parent="." unique_id=2010785204]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(19.65, 16.63)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nh8cv")
+
 [node name="Shadow" type="Panel" parent="." unique_id=228190787]
 layout_mode = 1
 anchors_preset = 15
@@ -86,7 +104,7 @@ grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(3, 8)
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_nh8cv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs3lg")
 
 [node name="Calculator" type="PanelContainer" parent="." unique_id=614944826]
 propagate_maximum_size = false

@@ -7,12 +7,12 @@
 [ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="3_i6g32"]
 [ext_resource type="Resource" uid="uid://6fhkojflnm0" path="res://BunchaEquations/5digit.tres" id="3_rku1e"]
 [ext_resource type="Resource" uid="uid://dklgmsaqloe5m" path="res://BunchaEquations/8digit.tres" id="4_rfjv2"]
-[ext_resource type="Resource" uid="uid://cfv40mkraee7h" path="res://BunchaEquations/10+digit.tres" id="5_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
 [ext_resource type="Resource" uid="uid://vly45estbsia" path="res://BunchaEquations/4digit.tres" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="8_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://btay26xtvud8a" path="res://Scenes/Calculator.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://bqohneb4xgsfl" path="res://Scenes/desk.tscn" id="13_rfjv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
 bg_color = Color(0, 0, 0, 0.3882353)
@@ -24,17 +24,16 @@ clock = NodePath("Day Timer")
 calculator = NodePath("Calculator")
 score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
-printer = NodePath("Printer2")
-equationSheets = Array[ExtResource("2_o5yvi")]([ExtResource("3_rku1e"), ExtResource("4_rfjv2"), ExtResource("5_rfjv2"), ExtResource("6_1phco")])
+printer = NodePath("Printer")
+equationSheets = Array[ExtResource("2_o5yvi")]([ExtResource("3_rku1e"), ExtResource("4_rfjv2"), ExtResource("6_1phco")])
+
+[node name="Cubicle" type="CanvasLayer" parent="." unique_id=1842572451]
+layer = -1
+
+[node name="cubicle" parent="Cubicle" unique_id=1028109892 instance=ExtResource("13_rfjv2")]
 
 [node name="Day Timer" type="Timer" parent="." unique_id=149863082]
 wait_time = 300.0
-
-[node name="Paper" type="Sprite2D" parent="." unique_id=549019192]
-position = Vector2(288.99997, 885)
-rotation = -0.052359886
-scale = Vector2(4.1162105, 2.836914)
-texture = ExtResource("2_qxrlw")
 
 [node name="Between Days UI" type="CanvasLayer" parent="." unique_id=1490903061]
 visible = false
@@ -75,12 +74,15 @@ script = ExtResource("3_3dryh")
 clock = NodePath("../../../Day Timer")
 
 [node name="Calculator" parent="." unique_id=614944826 instance=ExtResource("8_v158k")]
-offset_left = 774.0
-offset_top = 162.0
-offset_right = 1072.0
-offset_bottom = 609.0
+offset_left = 773.0
+offset_top = 126.0
+offset_right = 1071.0
+offset_bottom = 573.0
+offset_transform_enabled = true
+offset_transform_rotation = 0.06981317
+offset_transform_visual_only = false
 
-[node name="Printer2" parent="." unique_id=385053981 instance=ExtResource("8_h4fw4")]
+[node name="Printer" parent="." unique_id=385053981 instance=ExtResource("8_h4fw4")]
 position = Vector2(-99, 146)
 
 [editable path="Clock2"]

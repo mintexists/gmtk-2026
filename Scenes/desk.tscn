@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bqohneb4xgsfl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uil6a"]
+bg_color = Color(0.89411765, 0.8235294, 0.7411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_825yk"]
+bg_color = Color(0.40442058, 0.32421175, 0.22698903, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt6sy"]
+bg_color = Color(0.94509804, 0.6745098, 0.29411766, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 50
+border_color = Color(0.88235295, 0.4117647, 0.09803922, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_bottom = 15.0
+
+[node name="cubicle" type="Control" unique_id=1028109892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wall" type="Panel" parent="." unique_id=2031766177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uil6a")
+
+[node name="Floor" type="Panel" parent="." unique_id=919050300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_825yk")
+
+[node name="Desk" type="Panel" parent="." unique_id=1383912907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")

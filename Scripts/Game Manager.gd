@@ -26,6 +26,7 @@ func _ready() -> void:
 	pass
 
 func rerender_display()-> void:
+	await get_tree().process_frame
 	print("HELLLOOOO")
 	if currentPaper != null:
 		var real_equation = Evaluator.parse_equation_string(current_equation)
