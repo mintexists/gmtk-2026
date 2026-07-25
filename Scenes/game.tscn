@@ -83,6 +83,6 @@ offset_transform_rotation = 0.06981317
 offset_transform_visual_only = false
 
 [node name="Printer" parent="." unique_id=385053981 instance=ExtResource("8_h4fw4")]
-position = Vector2(-99, 146)
+position = Vector2(26, 319)
 
 [editable path="Clock2"]

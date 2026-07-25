@@ -3,13 +3,42 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="1_di2n8"]
 [ext_resource type="Script" uid="uid://be0st6xjxudsj" path="res://Scripts/printer.gd" id="1_v7fih"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt6sy"]
+bg_color = Color(0.20112762, 0.20112768, 0.20112756, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 20
+border_color = Color(0.83137256, 0.7647059, 0.654902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+expand_margin_bottom = 17.0
+
 [node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container")]
 script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
 move_to_position = Vector2(160, 100)
 
+[node name="Panel" type="Panel" parent="." unique_id=237881281]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -180.0
+offset_right = 63.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
+
 [node name="Bottom" type="Sprite2D" parent="." unique_id=767140784]
-position = Vector2(93, 131)
+visible = false
+position = Vector2(4, -8)
 scale = Vector2(1, 2.8671875)
 texture = ExtResource("1_di2n8")
 
@@ -17,8 +46,12 @@ texture = ExtResource("1_di2n8")
 custom_minimum_size = Vector2(450, 260)
 layout_mode = 3
 anchors_preset = 0
+offset_top = -128.0
+offset_right = 450.0
+offset_bottom = 132.0
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
-position = Vector2(64, 130.5)
+visible = false
+position = Vector2(-25, -8.5)
 scale = Vector2(1, 2.8671875)
 texture = ExtResource("1_di2n8")
