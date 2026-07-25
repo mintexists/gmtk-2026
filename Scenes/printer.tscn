@@ -3,13 +3,47 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="1_di2n8"]
 [ext_resource type="Script" uid="uid://be0st6xjxudsj" path="res://Scripts/printer.gd" id="1_v7fih"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5w5y"]
+bg_color = Color(0, 0, 0, 0.16862746)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7fih"]
+bg_color = Color(0.28, 0.28, 0.28, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+expand_margin_bottom = 3.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt6sy"]
 bg_color = Color(0.20112762, 0.20112768, 0.20112756, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 20
-border_color = Color(0.83137256, 0.7647059, 0.654902, 1)
+border_color = Color(0.83137256, 0.7294118, 0.57254905, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+expand_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulkxg"]
+bg_color = Color(0.83137256, 0.7647059, 0.654902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 20
+border_color = Color(0.83, 0.73136836, 0.57269996, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -22,7 +56,52 @@ script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
 move_to_position = Vector2(160, 100)
 
-[node name="Panel" type="Panel" parent="." unique_id=237881281]
+[node name="Shadows" type="CanvasGroup" parent="." unique_id=348840879]
+self_modulate = Color(1, 1, 1, 0.24705882)
+
+[node name="Tray" type="Panel" parent="Shadows" unique_id=1130102705]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -75.0
+offset_right = 187.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c5w5y")
+
+[node name="Tray2" type="Panel" parent="Shadows" unique_id=1165325382]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = 5.0
+offset_right = 64.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c5w5y")
+
+[node name="Tray" type="Panel" parent="." unique_id=1461020034]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.5
+offset_top = -108.0
+offset_right = 166.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7fih")
+
+[node name="Base" type="Panel" parent="." unique_id=237881281]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,6 +111,34 @@ offset_left = -63.5
 offset_top = -180.0
 offset_right = 63.5
 offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
+
+[node name="Side2" type="Panel" parent="." unique_id=1270555955]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = 116.0
+offset_right = 37.5
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
+
+[node name="Side" type="Panel" parent="." unique_id=860688012]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -196.0
+offset_right = 37.5
+offset_bottom = -142.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rt6sy")
@@ -55,3 +162,17 @@ visible = false
 position = Vector2(-25, -8.5)
 scale = Vector2(1, 2.8671875)
 texture = ExtResource("1_di2n8")
+
+[node name="Top2" type="Panel" parent="." unique_id=1192141212]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -217.0
+offset_right = 24.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulkxg")
