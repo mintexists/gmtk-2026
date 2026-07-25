@@ -4,7 +4,7 @@ var currentState: GameState = GameState.DAY_START
 var prevState:GameState
 
 var currentDay: int = 1
-
+var currentPaper: paper
 
 @export var clockTime:int 
 
@@ -20,7 +20,18 @@ var current_equation:String
 func _ready() -> void:
 	calculator.pressedConfirmed.connect(func()->void: currentState = GameState.SCORE)
 	clock.timeout.connect(func()->void: currentState = GameState.DAY_END)
+	calculator.draggable_moved.connect(rerender_display)
 	pass
+
+func rerender_display()-> void:
+	print("HELLLOOOO")
+	if currentPaper != null:
+		var real_equation = Evaluator.parse_equation_string(current_equation)
+		calculator.set_display_value(real_equation)
+		var depth = real_equation.evaluate_to_depth(calculator.get_order(),6)
+		currentPaper.clear()
+		for i in len(depth): 
+			currentPaper.render(i,depth[i])
 
 func _process(delta: float) -> void:
 
@@ -38,9 +49,9 @@ func _process(delta: float) -> void:
 				print("Executing Paper State")
 				calculator.isLocked = true
 				var real_equation = Evaluator.parse_equation_string(current_equation)
-				await printer.spawn_paper(real_equation)
+				var newPaper = await printer.spawn_paper(real_equation)
+				currentPaper = newPaper
 				calculator.reset()
-				calculator.set_display_value(real_equation)
 				currentState = GameState.PLAY
 				
 		GameState.PLAY:
@@ -48,8 +59,6 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				print("Executing Play State")
 				calculator.isLocked = false
-			var real_equation = Evaluator.parse_equation_string(current_equation)
-			calculator.set_display_value(real_equation)
 		GameState.SCORE:
 			if currentState != prevState:
 				prevState = currentState

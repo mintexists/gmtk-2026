@@ -8,17 +8,15 @@ extends Node2D
 @export_multiline() var equation_string = ""
 
 @export_tool_button("Random Equation") var random_equation_button = generate_graph
-@export_tool_button("Delete From List") var delete_from_list_button = delete_last_graph
-#@export_tool_button("Clear Graph") var clear_graph_button = line_2d.clear_points
+@export_tool_button("Delete Last") var delete_from_list_button = delete_last_graph
 
-@export var equations: Array[String] = []
-
-@export_tool_button("Play Back") var play_back_button = play_back;
+#@export_tool_button("Play Back") var play_back_button = play_back;
 @export_tool_button("Draw Graph") var draw_graph_button = func(): draw_graph(Evaluator.parse_equation_string(equation_string))
 
+@export var buncha_equations: BunchaEquations
 
 func play_back():
-	for equation_string in equations:
+	for equation_string in buncha_equations.equations:
 		draw_graph(Evaluator.parse_equation_string(equation_string))
 		await get_tree().create_timer(.5).timeout
 
@@ -27,16 +25,17 @@ func score(value, normal, min_result, max_result):
 	return abs(value - normal) / max_score
 
 func delete_last_graph():
-	equations.pop_back()
+	buncha_equations.equations.pop_back()
 	line_2d.clear_points()
 
 func generate_graph():
-	if len(equations) == 0:
-		equations = []
+	if len(buncha_equations.equations) == 0:
+		buncha_equations.equations = []
 	var equation = Parentheses.generate_random(length)
 	draw_graph(equation)
 	equation_string = equation.to_string_ugly()
-	equations.append(equation_string)
+	buncha_equations.equations.append(equation_string)
+	buncha_equations.equations = buncha_equations.equations
 
 func draw_graph(equation):
 	var results = Evaluator.get_all_possible_values(equation)

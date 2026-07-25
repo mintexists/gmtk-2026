@@ -20,7 +20,7 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		isHovering = true
 		z_index = 1
-		offset_transform_scale = Vector2(1.04, 1.04)
+		offset_transform_scale = Vector2(1.03, 1.03)
 		pass
 	if event is InputEventMouseButton and event.is_released():
 		isHovering = false
@@ -30,8 +30,6 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and isHovering:
 		var idx = self.get_index()
 		offset_transform_position.y += event.relative.y
-		print(offset_transform_position.y, " ", self.size.y)
-		print(idx)
 		if(offset_transform_position.y > (self.size.y)) and idx != parent.get_child_count() - 1:
 			offset_transform_position.y -= self.size.y
 			parent.move_child(self,idx+1)

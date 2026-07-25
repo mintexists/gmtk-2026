@@ -15,10 +15,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawn_paper(equation:Parentheses) ->void:
+func spawn_paper(equation:Parentheses) -> paper:
 	var newPaper = paperScene.instantiate()
 	paper_container.add_child(newPaper)
-	newPaper._render(newPaper.target,equation)
+	newPaper.get_inital_answer(equation)
+	newPaper.render(0,equation)
 	#newPaper.owner = root
-	
-	pass
+	return newPaper

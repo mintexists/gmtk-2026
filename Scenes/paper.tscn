@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://day5don85aqcs" path="res://Scripts/TextRenderer.gd" id="1_c7gsp"]
 [ext_resource type="Texture2D" uid="uid://cretfll5rhmce" path="res://Assets/dotmatrixpaper.svg" id="2_c7gsp"]
+[ext_resource type="Theme" uid="uid://vhl6hrk0yd1b" path="res://PreviewText.tres" id="3_322pb"]
 
-[node name="Paper" type="Control" unique_id=154244169 node_paths=PackedStringArray("target")]
+[node name="Paper" type="Control" unique_id=154244169 node_paths=PackedStringArray("textContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,8 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c7gsp")
-target = NodePath("VBoxContainer/1")
-the_String = "64 + 2^2 + 44 - ( 25 * 95 ) / 100"
+textContainer = NodePath("VBoxContainer")
 
 [node name="Shadow" type="NinePatchRect" parent="." unique_id=800646676]
 modulate = Color(0, 0, 0, 0.078431375)
@@ -52,30 +52,48 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1559335102]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 36.0
+offset_right = -16.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="1" type="HBoxContainer" parent="VBoxContainer" unique_id=391113595]
+[node name="0" type="HBoxContainer" parent="VBoxContainer" unique_id=391113595]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="2" type="HBoxContainer" parent="VBoxContainer" unique_id=1206894515]
-modulate = Color(0, 0, 0, 1)
+[node name="1" type="HBoxContainer" parent="VBoxContainer" unique_id=1206894515]
+modulate = Color(0.052800007, 0.15959999, 0.48, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_322pb")
 
-[node name="3" type="HBoxContainer" parent="VBoxContainer" unique_id=105788547]
-modulate = Color(0, 0, 0, 1)
+[node name="2" type="HBoxContainer" parent="VBoxContainer" unique_id=105788547]
+modulate = Color(0.052800007, 0.15959999, 0.48, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_322pb")
 
-[node name="4" type="HBoxContainer" parent="VBoxContainer" unique_id=173482451]
-modulate = Color(0, 0, 0, 1)
+[node name="3" type="HBoxContainer" parent="VBoxContainer" unique_id=173482451]
+modulate = Color(0.052800007, 0.15959999, 0.48, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_322pb")
 
-[node name="5" type="HBoxContainer" parent="VBoxContainer" unique_id=501432606]
-modulate = Color(0, 0, 0, 1)
+[node name="4" type="HBoxContainer" parent="VBoxContainer" unique_id=501432606]
+modulate = Color(0.052800007, 0.15959999, 0.48, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_322pb")
 
-[node name="6" type="HBoxContainer" parent="VBoxContainer" unique_id=1288430402]
-modulate = Color(0, 0, 0, 1)
+[node name="5" type="HBoxContainer" parent="VBoxContainer" unique_id=1288430402]
+modulate = Color(0.052800007, 0.15959999, 0.48, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_322pb")

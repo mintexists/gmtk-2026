@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://vhl6hrk0yd1b"]
+
+[ext_resource type="FontFile" uid="uid://du2elo6iufmjd" path="res://Assets/Fonts/Schoolbell-Regular.ttf" id="1_yq3f4"]
+
+[resource]
+default_font = ExtResource("1_yq3f4")
+Label/colors/font_color = Color(0.92156863, 0, 0, 0.7176471)

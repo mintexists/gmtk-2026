@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpmg5ctfb6etf"]
+
+[ext_resource type="Script" uid="uid://rrbxvcsmiybw" path="res://Scripts/equation_tinder.gd" id="1_43tfx"]
+[ext_resource type="Script" uid="uid://fg30pdldmm6s" path="res://Scripts/buncha_equations.gd" id="2_43tfx"]
+
+[sub_resource type="Resource" id="Resource_26ue6"]
+script = ExtResource("2_43tfx")
+equations = Array[String]([""])
+metadata/_custom_type_script = "uid://fg30pdldmm6s"
+
+[node name="Equation Tinder" type="Node2D" unique_id=1808780639 node_paths=PackedStringArray("line_2d")]
+script = ExtResource("1_43tfx")
+line_2d = NodePath("Line2D")
+length = 8
+equation_string = "72^2 + 87 + 55^2 + 88 / 3 * 47 * 20 / 30"
+buncha_equations = SubResource("Resource_26ue6")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=278327900]

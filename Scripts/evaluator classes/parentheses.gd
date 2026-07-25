@@ -139,15 +139,22 @@ static func evaluate_subtraction(value):
 
 static func generate_random(length):
 	var root = Parentheses.new([], true)
+	var current = root
+	var prev = root
 	var number_range = Vector2(0, 99)
 	var exponent_chance = 0.1;
+	var parentheses_chance = 0.1
+	var parentheses_length_options = [2, 2, 3]
+	var parentheses_counter = 0
 	var operators = [Operator.Add, Operator.Subtract, Operator.Multiply, Operator.Divide]
 	for i in length - 1:
+		if randf() < parentheses_chance:
+			current
 		var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
 		if randf() < exponent_chance:
 			number_to_add.exponent = randi_range(2, 3)
-		root.value.append(number_to_add)
-		root.value.append(operators.pick_random().new())
+		current.value.append(number_to_add)
+		current.value.append(operators.pick_random().new())
 		pass
 	var number_to_add = Number.new(randi_range(number_range.x, number_range.y))
 	if randf() < exponent_chance:

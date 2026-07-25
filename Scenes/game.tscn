@@ -60,7 +60,6 @@ offset_right = 547.62427
 offset_bottom = 456.24026
 rotation = -0.06981317
 pivot_offset_ratio = Vector2(0.5, 0.5)
-the_String = "20^2 + 44 / 100 - ( 25 * 95 ) - 15"
 
 [node name="Clock2" parent="." unique_id=1275429024 instance=ExtResource("7_1l0tm")]
 position = Vector2(1005, 76)
