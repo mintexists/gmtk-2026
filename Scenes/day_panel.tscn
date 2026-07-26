@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://byruwexpln2as"]
+
+[ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="1_o1k3l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
+bg_color = Color(0, 0, 0, 0.3882353)
+
+[node name="Between Days UI" type="CanvasLayer" unique_id=1400634345]
+script = ExtResource("1_o1k3l")
+
+[node name="Panel" type="Panel" parent="." unique_id=1342760115]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxrlw")
