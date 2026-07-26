@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="3_gflih"]
 [ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="4_d7idc"]
 [ext_resource type="Texture2D" uid="uid://cretfll5rhmce" path="res://Assets/dotmatrixpaper.svg" id="5_trxj8"]
+[ext_resource type="Theme" uid="uid://cjn8jt7tmb647" path="res://Assets/Themes/calc_slider.tres" id="6_rc8vp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibi8c"]
 bg_color = Color(0, 0, 0, 0.08235294)
@@ -31,8 +32,26 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 6
 outline_color = Color(0.46832657, 1.100991e-06, 1.6845763e-07, 1)
 
-[node name="LoseOverlayCool" type="CanvasLayer" unique_id=151901337]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc8vp"]
+content_margin_left = 8.0
+content_margin_top = 14.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="LoseOverlayCool" type="CanvasLayer" unique_id=151901337 node_paths=PackedStringArray("again_button", "quit")]
 script = ExtResource("1_u0ont")
+again_button = NodePath("PanelContainer/VBoxContainer/Play Again")
+quit = NodePath("PanelContainer/VBoxContainer/Quit")
 
 [node name="cubicle" parent="." unique_id=1028109892 instance=ExtResource("2_rc8vp")]
 z_index = -1
@@ -145,21 +164,27 @@ theme_override_font_sizes/italics_font_size = 13
 bbcode_enabled = true
 text = "Dear [EMPLOYEE NAME HERE],
 
-It breaks my heart to find out that you didn't listen to me!  you commited tax fraud! At AmazingOn.com everyone is family! 
-
+It breaks my heart to find out that you didn't listen to me! You commited tax fraud!  The money you embezzled has been seized and given to the shareholders as a big bouns. Unfortunately we do have to tie up lose ends now. So, I have hired the best hitmen west of the Mississippi to take you out. Thank you for being part of the AmazingOn.com famliy
 
 Love, The Boss
 CFO of AmazingOn.com"
 vertical_alignment = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=752342921]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1103099640]
+offset_left = 869.0
+offset_top = 374.0
+offset_right = 975.0
+offset_bottom = 472.0
+theme = ExtResource("6_rc8vp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rc8vp")
 
-[node name="Play Again" type="Button" parent="VBoxContainer" unique_id=1103483971]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=752342921]
+layout_mode = 2
+
+[node name="Play Again" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1103483971]
 layout_mode = 2
 text = "Play Again"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=335675416]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=335675416]
 layout_mode = 2
 text = "Quit"

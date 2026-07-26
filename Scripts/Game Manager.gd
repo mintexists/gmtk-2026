@@ -31,6 +31,7 @@ var equationSheets4 : Array[BunchaEquations]
 @export
 var equationSheets5 : Array[BunchaEquations]
 
+@onready
 var equationSheetsSheet:Array[Array] = [equationSheets,equationSheets2,equationSheets3,equationSheets4,equationSheets5]
 
 var target_number_for_day = [3, 5, 6, 7, 9]
@@ -44,6 +45,7 @@ func _ready() -> void:
 	clock.timeout.connect(func()->void: currentState = GameState.DAY_END)
 	calculator.draggable_moved.connect(rerender_display)
 	win_overlay.play_again.connect(reset_game)
+	lose_overlay.play_again.connect(reset_game)
 	pass
 
 func rerender_display()-> void:
@@ -168,6 +170,7 @@ func determine_result_display(result:float)->String:
 	return ""
 	
 func reset_game():
+	clock.stop()
 	printer.clear_paper()
 	score.absolute_score = 0
 	score.reset_current_score()

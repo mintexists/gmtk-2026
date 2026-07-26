@@ -39,6 +39,85 @@ corner_radius_bottom_left = 5
 corner_detail = 5
 expand_margin_bottom = 17.0
 
+[sub_resource type="Animation" id="Animation_yox0v"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-450, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-130, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_322pb"]
+resource_name = "print"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"points": PackedFloat32Array(-450, 0, 0, 0, 0, -370, 0, 0, 0, 0, -370, 0, 0, 0, 0, -330, 0, 0, 0, 0, -330, 0, 0, 0, 0, -300, 0, 0, 0, 0, -300, 0, 0, 0, 0, -270, 0, 0, 0, 0, -270, 0, 0, 0, 0, -250, 0, 0, 0, 0, -250, 0, 0, 0, 0, -220, 0, 0, 0, 0, -220, 0, 0, 0, 0, -190, 0, 0, 0, 0, -190, 0, 0, 0, 0, -160, 0, 0, 0, 0, -160, 0, 0, 0, 0, -120, 0, 0, 0, 0, 20, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56666666, 0.96666664, 1.2666667, 1.4333333, 1.6333333, 1.7999998, 2.0333333, 2.1333334, 2.3, 2.4333334, 2.5916667, 2.725, 2.8666666, 2.9999998, 3.1666667, 3.4666667, 4.233333, 4.9882407)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yox0v"]
+_data = {
+&"RESET": SubResource("Animation_yox0v"),
+&"print": SubResource("Animation_322pb")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulkxg"]
 bg_color = Color(0.83137256, 0.7647059, 0.654902, 1)
 border_width_left = 3
@@ -170,6 +249,9 @@ text = "[b]How to commit tax fraud:[/b]
 4. Lock in the answer you think is most different from the orignal by pressing the enter button on the calculator
 5. Make sure to reach the target by the end of each day!"
 scroll_active = false
+
+[node name="AnimationPlayer" parent="PaperContainer/Rules" index="3" unique_id=609949020]
+libraries/ = SubResource("AnimationLibrary_yox0v")
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
 visible = false

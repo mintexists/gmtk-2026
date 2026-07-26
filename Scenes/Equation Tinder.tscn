@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://b0vil101lgaxj" path="res://BunchaEquations/7digit.tres" id="2_43tfx"]
 
 [node name="Equation Tinder" type="Node2D" unique_id=1808780639 node_paths=PackedStringArray("line_2d")]
-position = Vector2(-1, 0)
 script = ExtResource("1_43tfx")
 line_2d = NodePath("Line2D")
 length = 7

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="2_cduhw"]
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="3_qvp4b"]
 [ext_resource type="Texture2D" uid="uid://cretfll5rhmce" path="res://Assets/dotmatrixpaper.svg" id="5_gqcht"]
+[ext_resource type="Theme" uid="uid://cjn8jt7tmb647" path="res://Assets/Themes/calc_slider.tres" id="6_gqcht"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibi8c"]
 bg_color = Color(0, 0, 0, 0.08235294)
@@ -31,8 +32,26 @@ font_color = Color(0.3499999, 1, 0, 1)
 outline_size = 6
 outline_color = Color(0.30599996, 0.54, 0, 1)
 
-[node name="WinOverlayCool" type="CanvasLayer" unique_id=151901337]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqcht"]
+content_margin_left = 8.0
+content_margin_top = 14.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="WinOverlayCool" type="CanvasLayer" unique_id=151901337 node_paths=PackedStringArray("again_button", "quit")]
 script = ExtResource("1_gqcht")
+again_button = NodePath("PanelContainer/VBoxContainer/Play Again")
+quit = NodePath("PanelContainer/VBoxContainer/Quit")
 
 [node name="cubicle" parent="." unique_id=1028109892 instance=ExtResource("1_tyngf")]
 z_index = -1
@@ -144,17 +163,26 @@ theme_override_font_sizes/bold_font_size = 13
 theme_override_font_sizes/italics_font_size = 13
 bbcode_enabled = true
 text = "Congratulations!
-You commited Tax Fraud undetected! While fortunate for you, the same cannot be said about AmazingOn.com. Turns out your [i]lovley[/i] boss just so happened to be embezzling funds from the employee payroll! Your tax fraud was pinned on him and AmazingOn.com was forced to shutdown. [b]Common Tax Fraud W[/b]"
+You commited Tax Fraud undetected! While fortunate for you, the same cannot be said about AmazingOn.com. Turns out your [i]lovley[/i] boss just so happened to be embezzling funds from the employee payroll! Your tax fraud was pinned on him and AmazingOn.com was forced to shutdown. [b]Common Tax Fraud W[/b] !!!"
 vertical_alignment = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=752342921]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=710628084]
+offset_left = 903.0
+offset_top = 380.0
+offset_right = 1009.0
+offset_bottom = 490.0
+theme = ExtResource("6_gqcht")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gqcht")
 
-[node name="Play Again" type="Button" parent="VBoxContainer" unique_id=1103483971]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=752342921]
+layout_mode = 2
+theme = ExtResource("6_gqcht")
+theme_override_constants/separation = 12
+
+[node name="Play Again" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1103483971]
 layout_mode = 2
 text = "Play Again"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=335675416]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=335675416]
 layout_mode = 2
 text = "Quit"

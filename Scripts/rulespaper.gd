@@ -23,4 +23,6 @@ func play_print_ani(time: float):
 	await get_tree().create_timer(time).timeout
 
 func reset():
+	offset_transform_position = Vector2(0,0)
+	offset_transform_rotation = 0
 	animation_player.play("RESET")
