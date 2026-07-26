@@ -192,6 +192,3 @@ theme = ExtResource("3_322pb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=609949020]
 libraries/ = SubResource("AnimationLibrary_yox0v")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=609949020]
-libraries/ = SubResource("AnimationLibrary_yox0v")

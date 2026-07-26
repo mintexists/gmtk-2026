@@ -5,8 +5,14 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
 bg_color = Color(0, 0, 0, 0.3882353)
 
-[node name="Between Days UI" type="CanvasLayer" unique_id=1400634345]
+[node name="Between Days UI" type="CanvasLayer" unique_id=1400634345 node_paths=PackedStringArray("label")]
 script = ExtResource("1_o1k3l")
+message = "You have %d days left in your last week of work.
+     
+You have commited $%d in tax fraud.
+     
+You must commit $%d more."
+label = NodePath("Label")
 
 [node name="Panel" type="Panel" parent="." unique_id=1342760115]
 anchors_preset = 15
@@ -24,5 +30,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "You have %d days left in your job
+You have commited $%d in tax fraud
+You must commit $%d more"
 horizontal_alignment = 1
 vertical_alignment = 1

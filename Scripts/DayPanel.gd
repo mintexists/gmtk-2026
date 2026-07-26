@@ -1,6 +1,9 @@
 class_name DayPanel
 extends CanvasLayer
 
+@export_multiline var message = ""
+@export var label: Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +16,11 @@ func _process(delta: float) -> void:
 func showDay(dayCount:int) -> void:
 	visible = true
 	print("it is day:" , dayCount)
-	await get_tree().create_timer(5).timeout
+	label.text = message % [5 - dayCount, 0, 0]
+	label.visible_ratio = 0
+	var tween = create_tween()
+	tween.tween_property(label, "visible_ratio", 1, 8)
+	await tween.finished
+	await get_tree().create_timer(3).timeout
 	visible = false
 	pass

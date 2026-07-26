@@ -32,6 +32,7 @@ layer = -1
 wait_time = 300.0
 
 [node name="Between Days UI" parent="." unique_id=1400634345 instance=ExtResource("7_rfjv2")]
+visible = false
 
 [node name="Node2D" type="Node2D" parent="." unique_id=79683003]
 
@@ -47,7 +48,7 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="Clock2" parent="." unique_id=1275429024 instance=ExtResource("7_1l0tm")]
-position = Vector2(1005, 76)
+position = Vector2(1021, 68)
 scale = Vector2(1.1, 1.1)
 
 [node name="Label" parent="Clock2/Node2D" parent_id_path=PackedInt32Array(1275429024, 1470764668) index="0" unique_id=2004372619 node_paths=PackedStringArray("clock")]
@@ -67,9 +68,6 @@ offset_transform_visual_only = false
 position = Vector2(26, 319)
 
 [node name="Score" parent="." unique_id=850901446 instance=ExtResource("13_1phco")]
-offset_left = 258.0
-offset_top = 14.0
-offset_right = 258.0
-offset_bottom = 14.0
+position = Vector2(289, 0)
 
 [editable path="Clock2"]

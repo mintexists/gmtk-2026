@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://cyvas2w8k0l1"]
 
-[node name="Score" type="Control" unique_id=850901446]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://2l28l67y45kv" path="res://score.gd" id="1_t1x8i"]
+
+[node name="Score" type="Node2D" unique_id=1803901382]
+script = ExtResource("1_t1x8i")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=495513124]
-layout_mode = 0
 offset_right = 260.0
 offset_bottom = 177.0
 
