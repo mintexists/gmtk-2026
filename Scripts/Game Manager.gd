@@ -17,6 +17,9 @@ var currentPaper: paper
 @export var win_overlay: WinOverlay
 @export var lose_overlay: LoseOverlay
 
+signal game_over_win
+signal game_over_lose
+
 @export
 var equationSheets : Array[BunchaEquations]
 
@@ -32,7 +35,7 @@ func _ready() -> void:
 	pass
 
 func rerender_display()-> void:
-	print("HELLLOOOO")
+	#print("HELLLOOOO")
 	if currentPaper != null:
 		var real_equation = Evaluator.parse_equation_string(current_equation)
 		calculator.set_display_value(real_equation)
@@ -113,10 +116,12 @@ func _process(delta: float) -> void:
 				print("Executing Day End")
 				if score.current_score < score.target_score:
 					lose_overlay.lose()
-				currentDay+=1
-				if currentDay == 5:
+					game_over_lose.emit()
+				elif currentDay == 5:
 					win_overlay.win()
+					game_over_win.emit()
 				else:
+					currentDay+=1
 					currentState = GameState.DAY_START
 	pass
 	

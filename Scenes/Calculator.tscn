@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://nlt7sesgxy54" path="res://Scripts/calcmanager.gd" id="1_3a7x4"]
 [ext_resource type="FontFile" uid="uid://cwcolcvru1lb5" path="res://Assets/Fonts/G7_Segment_7a.ttf" id="1_cmq5j"]
+[ext_resource type="AudioStream" uid="uid://d3n3cdjr7ogpq" path="res://Assets/Sounds/clickyclick-01.wav" id="2_3dk6j"]
+[ext_resource type="AudioStream" uid="uid://cl8qbe434hjup" path="res://Assets/Sounds/freesound_gamestudio-purchase-success-384963.mp3" id="2_5kyec"]
 [ext_resource type="Theme" uid="uid://cjn8jt7tmb647" path="res://Assets/Themes/calc_slider.tres" id="2_b3o0v"]
+[ext_resource type="AudioStream" uid="uid://cnuipwl0yaci3" path="res://Assets/Sounds/clickyclick-02.wav" id="3_65xaq"]
 [ext_resource type="Script" uid="uid://b3ybu86y12wce" path="res://Scripts/OrderGrabber.gd" id="4_nh8cv"]
 [ext_resource type="Script" uid="uid://c317fxh2avq54" path="res://Scripts/DraggableSwitch.gd" id="5_gs3lg"]
 
@@ -82,6 +85,18 @@ script = ExtResource("1_3a7x4")
 edmas_container = NodePath("Calculator/HBoxContainer/PanelContainer/VBoxContainer")
 Display = NodePath("Calculator/HBoxContainer/Display")
 EnterButton = NodePath("Calculator/HBoxContainer/HBoxContainer/Button")
+
+[node name="FreesoundGamestudioPurchaseSuccess384963" type="AudioStreamPlayer" parent="." unique_id=1795810113]
+stream = ExtResource("2_5kyec")
+volume_db = -10.0
+
+[node name="Clickyclick01" type="AudioStreamPlayer" parent="." unique_id=51807009]
+stream = ExtResource("2_3dk6j")
+volume_db = -10.0
+
+[node name="Clickyclick02" type="AudioStreamPlayer" parent="." unique_id=1216718768]
+stream = ExtResource("3_65xaq")
+volume_db = -10.0
 
 [node name="Shadow2" type="Panel" parent="." unique_id=2010785204]
 layout_mode = 1
@@ -305,4 +320,8 @@ theme = ExtResource("2_b3o0v")
 text = "Enter"
 
 [connection signal="child_order_changed" from="Calculator/HBoxContainer/PanelContainer/VBoxContainer" to="." method="_on_v_box_container_child_order_changed"]
+[connection signal="child_order_changed" from="Calculator/HBoxContainer/PanelContainer/VBoxContainer" to="Clickyclick01" method="play"]
+[connection signal="button_down" from="Calculator/HBoxContainer/HBoxContainer/Button" to="Clickyclick01" method="play"]
+[connection signal="button_up" from="Calculator/HBoxContainer/HBoxContainer/Button" to="Clickyclick02" method="play"]
 [connection signal="pressed" from="Calculator/HBoxContainer/HBoxContainer/Button" to="." method="on_confirm_press"]
+[connection signal="pressed" from="Calculator/HBoxContainer/HBoxContainer/Button" to="FreesoundGamestudioPurchaseSuccess384963" method="play"]

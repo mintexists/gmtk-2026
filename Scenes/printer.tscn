@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="1_di2n8"]
 [ext_resource type="Script" uid="uid://be0st6xjxudsj" path="res://Scripts/printer.gd" id="1_v7fih"]
 [ext_resource type="PackedScene" uid="uid://pu4igb5brcrr" path="res://Scenes/rulespaper.tscn" id="3_c5w5y"]
+[ext_resource type="AudioStream" uid="uid://d3v5jl76dltj6" path="res://Assets/Sounds/freesound_community-printer-106935.wav" id="4_ulkxg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5w5y"]
 bg_color = Color(0, 0, 0, 0.16862746)
@@ -52,11 +53,12 @@ corner_radius_bottom_left = 5
 corner_detail = 5
 expand_margin_bottom = 17.0
 
-[node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container", "lore", "rules")]
+[node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container", "lore", "rules", "freesound_community_printer_106935")]
 script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
 lore = NodePath("PaperContainer/Lore")
 rules = NodePath("PaperContainer/Rules")
+freesound_community_printer_106935 = NodePath("FreesoundCommunityPrinter106935")
 
 [node name="Shadows" type="CanvasGroup" parent="." unique_id=348840879]
 self_modulate = Color(1, 1, 1, 0.24705882)
@@ -188,5 +190,9 @@ offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulkxg")
+
+[node name="FreesoundCommunityPrinter106935" type="AudioStreamPlayer" parent="." unique_id=1269576052]
+stream = ExtResource("4_ulkxg")
+volume_db = -10.0
 
 [editable path="PaperContainer/Rules"]

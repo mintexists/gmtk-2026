@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cgiap526lb72n" path="res://Scripts/lose_overlay.gd" id="1_xni3g"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
 [node name="Lose Overlay" type="CanvasLayer" unique_id=1731876853]
 script = ExtResource("1_xni3g")
 
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nnt18")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=215308588]
 layout_mode = 2

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bvkrtm46bf6qf" path="res://Scripts/win_overlay.gd" id="1_estab"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xni3g"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
 [node name="Win Overlay" type="CanvasLayer" unique_id=418705584]
 script = ExtResource("1_estab")
 
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xni3g")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=1103096033]
 layout_mode = 2

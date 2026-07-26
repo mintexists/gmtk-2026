@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 func display(message: String, current:float,max_score: float):
 	rich_text_label.text = message
-	label.text = "You have commited $%d/$%d in tax fraud" % [current,max_score]
+	label.text = "You have commited $%s/$%s in tax fraud" % [Number.tostr_truncated(current),Number.tostr_truncated(max_score)]
 	visible = true
 	offset_transform_scale = Vector2(1, 0)
 	var tween = create_tween()

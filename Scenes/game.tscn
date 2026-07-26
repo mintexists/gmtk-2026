@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8r1c7st6vi4x" path="res://Scenes/score overlays/score_overlay.tscn" id="14_1phco"]
 [ext_resource type="PackedScene" uid="uid://b6i70gyr414n6" path="res://Scenes/win_overlay.tscn" id="15_nb51f"]
 [ext_resource type="PackedScene" uid="uid://b7cxfrmojtvrm" path="res://Scenes/lose_overlay.tscn" id="16_nnt18"]
+[ext_resource type="AudioStream" uid="uid://be45j8obs6lwi" path="res://Assets/Sounds/freesound_community-office-ambience-6322.mp3" id="17_ewbju"]
 
 [node name="Game" type="Node2D" unique_id=1374174835 node_paths=PackedStringArray("clock", "calculator", "score", "day_panel", "printer", "score_overlay", "win_overlay", "lose_overlay")]
 script = ExtResource("1_ebmjs")
@@ -88,5 +89,11 @@ visible = false
 
 [node name="Lose Overlay" parent="." unique_id=1731876853 instance=ExtResource("16_nnt18")]
 visible = false
+
+[node name="FreesoundCommunityOfficeAmbience6322" type="AudioStreamPlayer" parent="." unique_id=1442265761]
+stream = ExtResource("17_ewbju")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [editable path="Clock2"]
