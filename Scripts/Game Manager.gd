@@ -22,9 +22,20 @@ signal game_over_lose
 
 @export
 var equationSheets : Array[BunchaEquations]
+@export
+var equationSheets2 : Array[BunchaEquations]
+@export
+var equationSheets3 : Array[BunchaEquations]
+@export
+var equationSheets4 : Array[BunchaEquations]
+@export
+var equationSheets5 : Array[BunchaEquations]
+
+var equationSheetsSheet:Array[Array] = [equationSheets,equationSheets2,equationSheets3,equationSheets4,equationSheets5]
 
 var target_number_for_day = [3, 5, 6, 7, 9]
 var target_equations: Array[String]
+
 
 var current_equation:String 
 
@@ -32,6 +43,7 @@ func _ready() -> void:
 	calculator.pressedConfirmed.connect(func()->void: currentState = GameState.SCORE)
 	clock.timeout.connect(func()->void: currentState = GameState.DAY_END)
 	calculator.draggable_moved.connect(rerender_display)
+	win_overlay.play_again.connect(reset_game)
 	pass
 
 func rerender_display()-> void:
@@ -58,7 +70,7 @@ func _process(delta: float) -> void:
 					target_equations.clear()
 					var target_score = 0
 					for i in target_number_for_day[currentDay]:
-						var equation = equationSheets.pick_random().equations.pick_random()
+						var equation = equationSheetsSheet[currentDay].pick_random().equations.pick_random()
 						target_score += score.max_score(Evaluator.parse_equation_string(equation))
 						target_equations.append(equation)
 					score.target_score = target_score
@@ -72,7 +84,7 @@ func _process(delta: float) -> void:
 					target_equations.clear()
 					var target_score = 0
 					for i in target_number_for_day[currentDay]:
-						var equation = equationSheets.pick_random().equations.pick_random()
+						var equation = equationSheetsSheet[currentDay].pick_random().equations.pick_random()
 						target_score += score.max_score(Evaluator.parse_equation_string(equation))
 						target_equations.append(equation)
 					score.target_score = target_score
@@ -121,8 +133,9 @@ func _process(delta: float) -> void:
 					win_overlay.win()
 					game_over_win.emit()
 				else:
-					currentDay+=1
+					currentDay += 1
 					currentState = GameState.DAY_START
+					
 	pass
 	
 func score_points():
@@ -135,7 +148,7 @@ func get_equation() -> String:
 	if len(target_equations) > 0:
 		return target_equations.pop_back()
 	else:
-		return equationSheets.pick_random().equations.pick_random()
+		return equationSheetsSheet[currentDay].pick_random().equations.pick_random()
 	#var sheet = randi() % equationSheets.size()
 	#var sheetSize = equationSheets[sheet].equations.size()
 	#return equationSheets[sheet].equations.pick_random()
@@ -153,3 +166,12 @@ func determine_result_display(result:float)->String:
 	elif(result == 1.0):
 		return "FULL SCORE!!!!"
 	return ""
+	
+func reset_game():
+	printer.clear_paper()
+	score.absolute_score = 0
+	score.reset_current_score()
+	score.clear_screen()
+	currentDay = 0
+	currentState = GameState.DAY_START
+	pass

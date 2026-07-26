@@ -35,3 +35,11 @@ func print_lore():
 func print_rules():
 	freesound_community_printer_106935.play()
 	await rules.play_print_ani(30)
+
+func clear_paper():
+	for child in paper_container.get_children():
+		if child is RulesPaper:
+			child.reset()
+		elif child is paper:
+			child.free()
+	

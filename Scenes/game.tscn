@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="Script" uid="uid://b5dv7yio6avp1" path="res://Scripts/Game Manager.gd" id="1_ebmjs"]
-[ext_resource type="Script" uid="uid://fg30pdldmm6s" path="res://Scripts/buncha_equations.gd" id="2_o5yvi"]
 [ext_resource type="Script" uid="uid://dyhec346q8t5b" path="res://Scripts/clock.gd" id="3_3dryh"]
-[ext_resource type="Resource" uid="uid://6fhkojflnm0" path="res://BunchaEquations/5digit.tres" id="3_rku1e"]
-[ext_resource type="Resource" uid="uid://dklgmsaqloe5m" path="res://BunchaEquations/8digit.tres" id="4_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://dsbst1y8nsp0s" path="res://Scenes/paper.tscn" id="5_wowpa"]
-[ext_resource type="Resource" uid="uid://vly45estbsia" path="res://BunchaEquations/4digit.tres" id="6_1phco"]
 [ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://byruwexpln2as" path="res://Scenes/day_panel.tscn" id="7_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="8_h4fw4"]
@@ -14,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyvas2w8k0l1" path="res://score.tscn" id="13_1phco"]
 [ext_resource type="PackedScene" uid="uid://bqohneb4xgsfl" path="res://Scenes/desk.tscn" id="13_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://c8r1c7st6vi4x" path="res://Scenes/score overlays/score_overlay.tscn" id="14_1phco"]
-[ext_resource type="PackedScene" uid="uid://b6i70gyr414n6" path="res://Scenes/win_overlay.tscn" id="15_nb51f"]
+[ext_resource type="PackedScene" uid="uid://be5yfuxaioqap" path="res://Scenes/win_overlay_cool.tscn" id="16_ewbju"]
 [ext_resource type="PackedScene" uid="uid://b7cxfrmojtvrm" path="res://Scenes/lose_overlay.tscn" id="16_nnt18"]
 [ext_resource type="AudioStream" uid="uid://be45j8obs6lwi" path="res://Assets/Sounds/freesound_community-office-ambience-6322.mp3" id="17_ewbju"]
 
@@ -27,9 +23,9 @@ score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
 printer = NodePath("Printer")
 score_overlay = NodePath("Score Overlay/ScoreOverlay")
-win_overlay = NodePath("Win Overlay")
+win_overlay = NodePath("WinOverlayCool")
 lose_overlay = NodePath("Lose Overlay")
-equationSheets = Array[ExtResource("2_o5yvi")]([ExtResource("3_rku1e"), ExtResource("4_rfjv2"), ExtResource("6_1phco")])
+equationSheets = Array[Array]([[]])
 
 [node name="Cubicle" type="CanvasLayer" parent="." unique_id=1842572451]
 layer = -1
@@ -84,10 +80,10 @@ position = Vector2(217, 9)
 [node name="ScoreOverlay" parent="Score Overlay" unique_id=910856399 instance=ExtResource("14_1phco")]
 visible = false
 
-[node name="Win Overlay" parent="." unique_id=418705584 instance=ExtResource("15_nb51f")]
+[node name="Lose Overlay" parent="." unique_id=1731876853 instance=ExtResource("16_nnt18")]
 visible = false
 
-[node name="Lose Overlay" parent="." unique_id=1731876853 instance=ExtResource("16_nnt18")]
+[node name="WinOverlayCool" parent="." unique_id=151901337 instance=ExtResource("16_ewbju")]
 visible = false
 
 [node name="FreesoundCommunityOfficeAmbience6322" type="AudioStreamPlayer" parent="." unique_id=1442265761]

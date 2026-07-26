@@ -145,7 +145,7 @@ static func generate_random(length):
 	var root = Parentheses.new([], true)
 	var current = root
 	var prev = root
-	var number_range = Vector2(0, 99)
+	var number_range = Vector2(-10, 99)
 	var exponent_chance = 0.1;
 	var parentheses_chance = .1
 	var parentheses_length_options = [1, 1, 2]

@@ -21,3 +21,6 @@ func play_print_ani(time: float):
 	tween.parallel().tween_property(self, "offset_transform_rotation", deg_to_rad(randf_range(-random_rotation_range, random_rotation_range)), speed)
 	await tween.finished
 	await get_tree().create_timer(time).timeout
+
+func reset():
+	animation_player.play("RESET")

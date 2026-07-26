@@ -30,9 +30,9 @@ outline_color = Color(0.30599996, 0.54, 0, 1)
 [node name="Score" type="Node2D" unique_id=1803901382 node_paths=PackedStringArray("label")]
 script = ExtResource("1_t1x8i")
 label = NodePath("PanelContainer/Label")
-message = "Today's Tax Fraud: $%d
-Target: $%d
-Remaining: $%d"
+message = "Today's Tax Fraud: $%s
+Target: $%s
+Remaining: $%s"
 
 [node name="Panel" type="Panel" parent="." unique_id=109004100]
 offset_right = 454.0

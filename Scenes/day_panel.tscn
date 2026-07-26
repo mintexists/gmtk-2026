@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://byruwexpln2as"]
 
 [ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="1_o1k3l"]
+[ext_resource type="AudioStream" uid="uid://ca2yyl0j1pf2k" path="res://Assets/Sounds/dragon-studio-typing-keyboard-asmr-356116.mp3" id="2_n60rw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
 bg_color = Color(0.08985824, 0.08985824, 0.08985824, 1)
 
-[node name="Between Days UI" type="CanvasLayer" unique_id=1400634345 node_paths=PackedStringArray("label")]
+[node name="Between Days UI" type="CanvasLayer" unique_id=1400634345 node_paths=PackedStringArray("label", "dragon_studio_typing_keyboard_asmr_356116")]
 script = ExtResource("1_o1k3l")
 message = "You have %d days left in your last week of work.
      
-You have commited $%d in tax fraud.
+You have commited $%s in tax fraud.
      
-You must commit $%d today."
+You must commit $%s today."
 label = NodePath("Label")
+dragon_studio_typing_keyboard_asmr_356116 = NodePath("DragonStudioTypingKeyboardAsmr356116")
+
+[node name="DragonStudioTypingKeyboardAsmr356116" type="AudioStreamPlayer" parent="." unique_id=543366325]
+stream = ExtResource("2_n60rw")
 
 [node name="Panel" type="Panel" parent="." unique_id=1342760115]
 anchors_preset = 15

@@ -17,10 +17,10 @@ func score(order:Array,equation:Parentheses) -> float:
 	var min_score = evaluation[0]
 	var max_score = evaluation[-1]
 	var percent = get_score_percent(value,normal,min_score,max_score)
-	print("normal: %s, value: %s, min: %s max: %s percent: %s" % [normal, value, min_score, max_score, percent])
+	#print("normal: %s, value: %s, min: %s max: %s percent: %s" % [normal, value, min_score, max_score, percent])
 	current_score += abs(value-normal)
 	absolute_score += current_score
-	label.text = message % [current_score,target_score, max(target_score-current_score, 0)]
+	label.text = message % [Number.tostr_truncated(current_score),Number.tostr_truncated(target_score), Number.tostr_truncated(max(target_score-current_score, 0))]
 	return percent
 	
 func max_score(equation: Parentheses) -> float:
@@ -47,7 +47,7 @@ func get_score_number(order:Array,equation:Parentheses) -> float:
 
 func reset_current_score()->void:
 	current_score = 0
-	label.text = message % [current_score,target_score, max(target_score-current_score, 0)]
+	label.text = message % [Number.tostr_truncated(current_score),Number.tostr_truncated(target_score), Number.tostr_truncated(max(target_score-current_score, 0))]
 	pass
 
 func clear_screen():

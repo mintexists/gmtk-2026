@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://8ii71hddcmca"]
+
+[ext_resource type="Script" uid="uid://cgiap526lb72n" path="res://Scripts/lose_overlay.gd" id="1_u0ont"]
+[ext_resource type="PackedScene" uid="uid://bqohneb4xgsfl" path="res://Scenes/desk.tscn" id="2_rc8vp"]
+[ext_resource type="PackedScene" uid="uid://bpfpj37gduawr" path="res://Scenes/Clock.tscn" id="3_gflih"]
+[ext_resource type="PackedScene" uid="uid://dlltyudo014o6" path="res://Scenes/printer.tscn" id="4_d7idc"]
+[ext_resource type="Texture2D" uid="uid://cretfll5rhmce" path="res://Assets/dotmatrixpaper.svg" id="5_trxj8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibi8c"]
+bg_color = Color(0, 0, 0, 0.08235294)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o3uq"]
+bg_color = Color(0.11558022, 0.11558025, 0.11558015, 1)
+border_width_left = 3
+border_width_top = 30
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53, 0.21199998, 0.21729991, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1x8i"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0.46832657, 1.100991e-06, 1.6845763e-07, 1)
+
+[node name="LoseOverlayCool" type="CanvasLayer" unique_id=151901337]
+script = ExtResource("1_u0ont")
+
+[node name="cubicle" parent="." unique_id=1028109892 instance=ExtResource("2_rc8vp")]
+z_index = -1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Clock" parent="." unique_id=1275429024 instance=ExtResource("3_gflih")]
+position = Vector2(1021, 68)
+scale = Vector2(1.1, 1.1)
+
+[node name="Printer" parent="." unique_id=385053981 instance=ExtResource("4_d7idc")]
+position = Vector2(26, 319)
+script = null
+
+[node name="Score" type="Node2D" parent="." unique_id=1803901382]
+position = Vector2(217, 9)
+
+[node name="Panel" type="Panel" parent="Score" unique_id=109004100]
+offset_right = 454.0
+offset_bottom = 204.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ibi8c")
+
+[node name="PanelContainer" type="PanelContainer" parent="Score" unique_id=495513124]
+offset_right = 454.0
+offset_bottom = 153.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2o3uq")
+
+[node name="Label" type="Label" parent="Score/PanelContainer" unique_id=1116570694]
+layout_mode = 2
+text = "You Got Caught!!!"
+label_settings = SubResource("LabelSettings_t1x8i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Paper" type="Control" parent="." unique_id=154244169]
+custom_minimum_size = Vector2(450, 260)
+custom_maximum_size = Vector2(450, 260)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 364.0
+offset_top = 263.0
+offset_right = 814.0
+offset_bottom = 523.0
+rotation = 0.05235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+offset_transform_visual_only = false
+
+[node name="Shadow" type="NinePatchRect" parent="Paper" unique_id=800646676]
+modulate = Color(0, 0, 0, 0.078431375)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 10)
+texture = ExtResource("5_trxj8")
+region_rect = Rect2(1, 1, 90, 90)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Paper" type="NinePatchRect" parent="Paper" unique_id=1463469253]
+modulate = Color(1, 0.98039216, 0.92941177, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("5_trxj8")
+region_rect = Rect2(1, 1, 90, 90)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Paper" unique_id=1559335102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 29.0
+offset_right = -16.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Paper/VBoxContainer" unique_id=779611075]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/italics_font_size = 13
+bbcode_enabled = true
+text = "Dear [EMPLOYEE NAME HERE],
+
+It breaks my heart to find out that you didn't listen to me!  you commited tax fraud! At AmazingOn.com everyone is family! 
+
+
+Love, The Boss
+CFO of AmazingOn.com"
+vertical_alignment = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=752342921]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play Again" type="Button" parent="VBoxContainer" unique_id=1103483971]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=335675416]
+layout_mode = 2
+text = "Quit"
