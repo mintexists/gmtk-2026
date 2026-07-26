@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="1_di2n8"]
 [ext_resource type="Script" uid="uid://be0st6xjxudsj" path="res://Scripts/printer.gd" id="1_v7fih"]
+[ext_resource type="PackedScene" uid="uid://pu4igb5brcrr" path="res://Scenes/rulespaper.tscn" id="3_c5w5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5w5y"]
 bg_color = Color(0, 0, 0, 0.16862746)
@@ -51,9 +52,11 @@ corner_radius_bottom_left = 5
 corner_detail = 5
 expand_margin_bottom = 17.0
 
-[node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container")]
+[node name="Printer" type="Node2D" unique_id=385053981 node_paths=PackedStringArray("paper_container", "lore", "rules")]
 script = ExtResource("1_v7fih")
 paper_container = NodePath("PaperContainer")
+lore = NodePath("PaperContainer/Lore")
+rules = NodePath("PaperContainer/Rules")
 
 [node name="Shadows" type="CanvasGroup" parent="." unique_id=348840879]
 self_modulate = Color(1, 1, 1, 0.24705882)
@@ -153,6 +156,19 @@ texture = ExtResource("1_di2n8")
 [node name="PaperContainer" type="Node2D" parent="." unique_id=691546838]
 position = Vector2(19, 0)
 
+[node name="Lore" parent="PaperContainer" unique_id=154244169 instance=ExtResource("3_c5w5y")]
+
+[node name="Rules" parent="PaperContainer" unique_id=432617994 instance=ExtResource("3_c5w5y")]
+
+[node name="RichTextLabel" parent="PaperContainer/Rules/VBoxContainer" parent_id_path=PackedInt32Array(432617994, 1559335102) index="0" unique_id=779611075]
+text = "[b]How to commit tax fraud:[/b]
+1. Each paper you recive will have a simple equation
+2. Your goal is to change the answer to this equation as much as possible by changing the order of operations (PEMDAS)
+3. Move the Tabs of your EMDAS Calculator to preview the new result of the equation.
+4. Lock in the answer you think is most different from the orignal by pressing the enter button on the calculator
+5. Make sure to reach the target by the end of each day!"
+scroll_active = false
+
 [node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
 visible = false
 position = Vector2(-25, -8.5)
@@ -172,3 +188,5 @@ offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ulkxg")
+
+[editable path="PaperContainer/Rules"]

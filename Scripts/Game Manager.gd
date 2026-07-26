@@ -14,6 +14,8 @@ var currentPaper: paper
 @export var day_panel: DayPanel
 @export var printer: Printer
 @export var score_overlay:Control
+@export var win_overlay: WinOverlay
+@export var lose_overlay: LoseOverlay
 
 @export
 var equationSheets : Array[BunchaEquations]
@@ -46,17 +48,35 @@ func _process(delta: float) -> void:
 			if currentState != prevState:
 				prevState = currentState
 				print("Executing Day Start")
-				target_equations.clear()
-				var target_score = 0
-				for i in target_number_for_day[currentDay]:
-					var equation = equationSheets.pick_random().equations.pick_random()
-					target_score += score.max_score(Evaluator.parse_equation_string(equation))
-					target_equations.append(equation)
-				score.target_score = target_score
-				print(target_score, " target score")
-				score.reset_current_score()
-				await day_panel.showDay(currentDay)
-				clock.start(clockTime)
+				if currentDay == 0:
+					calculator.lock()
+					score.clear_screen()
+					await printer.print_lore()
+					target_equations.clear()
+					var target_score = 0
+					for i in target_number_for_day[currentDay]:
+						var equation = equationSheets.pick_random().equations.pick_random()
+						target_score += score.max_score(Evaluator.parse_equation_string(equation))
+						target_equations.append(equation)
+					score.target_score = target_score
+					print(target_score, " target score")
+					score.reset_current_score()
+					await day_panel.showDay(currentDay,score.absolute_score,target_score)
+					await printer.print_rules()
+					clock.start(clockTime)
+					calculator.unlock()
+				else:
+					target_equations.clear()
+					var target_score = 0
+					for i in target_number_for_day[currentDay]:
+						var equation = equationSheets.pick_random().equations.pick_random()
+						target_score += score.max_score(Evaluator.parse_equation_string(equation))
+						target_equations.append(equation)
+					score.target_score = target_score
+					print(target_score, " target score")
+					score.reset_current_score()
+					await day_panel.showDay(currentDay,score.absolute_score,target_score)
+					clock.start(clockTime)
 				currentState = GameState.NEXT_PAPER
 		GameState.NEXT_PAPER:
 			if currentState != prevState:
@@ -81,16 +101,23 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				calculator.lock()
 				print("Executing Score State")
-				var result = score.score(calculator.get_order(),Evaluator.parse_equation_string(current_equation))
-				await score_overlay.display(determine_result_display(result))
+				var equation = Evaluator.parse_equation_string(current_equation)
+				var result = score.score(calculator.get_order(),equation)
+				var max_score = score.max_score(equation)
+				await score_overlay.display(determine_result_display(result), score.get_score_number(calculator.get_order(), equation),max_score)
 				#await score_points()
 				currentState = GameState.NEXT_PAPER
 		GameState.DAY_END:
 			if currentState != prevState:
 				prevState = currentState
 				print("Executing Day End")
+				if score.current_score < score.target_score:
+					lose_overlay.lose()
 				currentDay+=1
-				currentState = GameState.DAY_START
+				if currentDay == 5:
+					win_overlay.win()
+				else:
+					currentState = GameState.DAY_START
 	pass
 	
 func score_points():
@@ -110,12 +137,12 @@ func get_equation() -> String:
 	
 func determine_result_display(result:float)->String:
 	print(result)
-	if(result <= 0.1):
-		return "You did Nothing!"
+	if(result == 0.0):
+		return "You did Literally Nothing!"
 	elif(result <= 0.2):
 		return "Horrible Job :)"
 	elif(result <= 0.5):
-		return "Just Ok.."
+		return "Just Ok..."
 	elif(result < 1.0):
 		return "Great Job!"
 	elif(result == 1.0):

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6i70gyr414n6"]
+
+[ext_resource type="Script" uid="uid://bvkrtm46bf6qf" path="res://Scripts/win_overlay.gd" id="1_estab"]
+
+[node name="Win Overlay" type="CanvasLayer" unique_id=418705584]
+script = ExtResource("1_estab")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1410974878]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=1103096033]
+layout_mode = 2
+text = "You Win"
+horizontal_alignment = 1
+vertical_alignment = 1

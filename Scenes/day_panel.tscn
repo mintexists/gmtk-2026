@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cx7yregfoqtqr" path="res://Scripts/DayPanel.gd" id="1_o1k3l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrlw"]
-bg_color = Color(0, 0, 0, 0.3882353)
+bg_color = Color(0.08985824, 0.08985824, 0.08985824, 1)
 
 [node name="Between Days UI" type="CanvasLayer" unique_id=1400634345 node_paths=PackedStringArray("label")]
 script = ExtResource("1_o1k3l")

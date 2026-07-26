@@ -63,6 +63,6 @@ func render(target:int,equation:Parentheses) -> void:
 	if target == 0 and equation.root:
 		var lbl = numberLabel.instantiate()
 		textContainer.get_child(target).add_child(lbl)
-		lbl.setup("= %d" % pemdasAnswer, "1")
+		lbl.setup("= %s" % Number.tostr_truncated(pemdasAnswer), "1")
 	
 	pass

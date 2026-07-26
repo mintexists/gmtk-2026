@@ -13,10 +13,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func showDay(dayCount:int) -> void:
+func showDay(dayCount:int,total:float,target:float) -> void:
 	visible = true
+	
 	print("it is day:" , dayCount)
-	label.text = message % [5 - dayCount, 0, 0]
+	label.text = message % [5 - dayCount, total, target]
 	label.visible_ratio = 0
 	var tween = create_tween()
 	tween.tween_property(label, "visible_ratio", 1, 8)

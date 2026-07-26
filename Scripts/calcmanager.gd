@@ -28,7 +28,7 @@ func on_confirm_press()->void:
 func set_display_value(value:Parentheses):
 	var textToDisplay:float = value.evaluate(get_order())
 	#print(textToDisplay)
-	Display.text = "%d" % textToDisplay
+	Display.text = Number.tostr_truncated(textToDisplay)
 	pass
 func get_order() -> Array:
 	return edmas_container.get_order()

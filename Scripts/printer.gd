@@ -2,6 +2,8 @@ class_name Printer
 extends Node2D
 
 @export var paper_container: Node
+@export var lore: RulesPaper
+@export var rules: RulesPaper
 
 var paperScene = preload("res://Scenes/paper.tscn")
 #var root
@@ -22,3 +24,9 @@ func spawn_paper(equation:Parentheses) -> paper:
 	newPaper.render(0,equation)
 	await newPaper.play_print_ani()
 	return newPaper
+	
+func print_lore():
+	await lore.play_print_ani(30)
+	
+func print_rules():
+	await rules.play_print_ani(30)
