@@ -20,4 +20,5 @@ func spawn_paper(equation:Parentheses) -> paper:
 	paper_container.add_child(newPaper)
 	newPaper.get_inital_answer(equation)
 	newPaper.render(0,equation)
+	await newPaper.play_print_ani()
 	return newPaper

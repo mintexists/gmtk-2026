@@ -151,6 +151,7 @@ scale = Vector2(1, 2.8671875)
 texture = ExtResource("1_di2n8")
 
 [node name="PaperContainer" type="Node2D" parent="." unique_id=691546838]
+position = Vector2(19, 0)
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1468815965]
 visible = false
