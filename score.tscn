@@ -2,15 +2,40 @@
 
 [ext_resource type="Script" uid="uid://2l28l67y45kv" path="res://score.gd" id="1_t1x8i"]
 
-[node name="Score" type="Node2D" unique_id=1803901382]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o3uq"]
+bg_color = Color(0.11558022, 0.11558025, 0.11558015, 1)
+border_width_left = 3
+border_width_top = 30
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.53, 0.21199998, 0.21729991, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1x8i"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0.5430403, 1.3356283e-06, 4.813075e-07, 1)
+
+[node name="Score" type="Node2D" unique_id=1803901382 node_paths=PackedStringArray("label")]
 script = ExtResource("1_t1x8i")
+label = NodePath("PanelContainer/Label")
+
+[node name="Panel" type="Panel" parent="." unique_id=109004100]
+offset_right = 260.0
+offset_bottom = 230.0
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=495513124]
 offset_right = 260.0
 offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2o3uq")
 
-[node name="Label" type="Label" parent="PanelContainer" unique_id=398635934]
+[node name="Label" type="Label" parent="PanelContainer" unique_id=1116570694]
 layout_mode = 2
-text = "Liberal Guilt"
+text = "$50/100"
+label_settings = SubResource("LabelSettings_t1x8i")
 horizontal_alignment = 1
 vertical_alignment = 1

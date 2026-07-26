@@ -10,9 +10,10 @@ var currentPaper: paper
 
 @export var clock: Timer	
 @export var calculator: Calculator
-@export var score: Node
+@export var score: ScoreContainer
 @export var day_panel: DayPanel
 @export var printer: Printer
+@export var score_overlay:Control
 
 @export
 var equationSheets : Array[BunchaEquations]
@@ -68,7 +69,9 @@ func _process(delta: float) -> void:
 				prevState = currentState
 				calculator.lock()
 				print("Executing Score State")
-				await score_points()
+				var result = score.score(calculator.get_order(),Evaluator.parse_equation_string(current_equation))
+				
+				#await score_points()
 				currentState = GameState.NEXT_PAPER
 		GameState.DAY_END:
 			if currentState != prevState:
@@ -88,3 +91,15 @@ func get_equation() -> String:
 	var sheet = randi() % equationSheets.size()
 	var sheetSize = equationSheets[sheet].equations.size()
 	return equationSheets[sheet].equations.pick_random()
+	
+func determine_result_display(result:float)->String:
+	if(result <= 0.1):
+		return "You did Nothing!"
+	elif(result<= 0.2):
+		return "Horrible Job :)"
+	elif(result<= 0.5):
+		return "Just Ok.."
+	elif(result<= 0.8):
+		return "Great Job!"
+
+	return ""

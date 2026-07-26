@@ -13,14 +13,17 @@
 [ext_resource type="PackedScene" uid="uid://btay26xtvud8a" path="res://Scenes/Calculator.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://cyvas2w8k0l1" path="res://score.tscn" id="13_1phco"]
 [ext_resource type="PackedScene" uid="uid://bqohneb4xgsfl" path="res://Scenes/desk.tscn" id="13_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://c8r1c7st6vi4x" path="res://Scenes/score overlays/score_overlay.tscn" id="14_1phco"]
 
-[node name="Game" type="Node2D" unique_id=1374174835 node_paths=PackedStringArray("clock", "calculator", "day_panel", "printer")]
+[node name="Game" type="Node2D" unique_id=1374174835 node_paths=PackedStringArray("clock", "calculator", "score", "day_panel", "printer", "score_overlay")]
 script = ExtResource("1_ebmjs")
 clockTime = 300
 clock = NodePath("Day Timer")
 calculator = NodePath("Calculator")
+score = NodePath("Score")
 day_panel = NodePath("Between Days UI")
 printer = NodePath("Printer")
+score_overlay = NodePath("CanvasLayer/ScoreOverlay")
 equationSheets = Array[ExtResource("2_o5yvi")]([ExtResource("3_rku1e"), ExtResource("4_rfjv2"), ExtResource("6_1phco")])
 
 [node name="Cubicle" type="CanvasLayer" parent="." unique_id=1842572451]
@@ -68,6 +71,11 @@ offset_transform_visual_only = false
 position = Vector2(26, 319)
 
 [node name="Score" parent="." unique_id=850901446 instance=ExtResource("13_1phco")]
-position = Vector2(289, 0)
+position = Vector2(290, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=571024433]
+
+[node name="ScoreOverlay" parent="CanvasLayer" unique_id=910856399 instance=ExtResource("14_1phco")]
+visible = false
 
 [editable path="Clock2"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c8r1c7st6vi4x"]
+
+[ext_resource type="Script" uid="uid://d05o6j7imxhjw" path="res://Scripts/score_overlay.gd" id="1_80per"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80per"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.032274038, 0.032274053, 0.032274045, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="ScoreOverlay" type="Control" unique_id=910856399 node_paths=PackedStringArray("rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+script = ExtResource("1_80per")
+rich_text_label = NodePath("PanelContainer/RichTextLabel")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=909328803]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -97.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_80per")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1335824175]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "NICE JOB"
+horizontal_alignment = 1
+vertical_alignment = 1

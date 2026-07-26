@@ -11,7 +11,7 @@ message = "You have %d days left in your last week of work.
      
 You have commited $%d in tax fraud.
      
-You must commit $%d more."
+You must commit $%d today."
 label = NodePath("Label")
 
 [node name="Panel" type="Panel" parent="." unique_id=1342760115]
@@ -31,8 +31,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "You have %d days left in your job
-You have commited $%d in tax fraud
-You must commit $%d more"
+text = "You have %d days left in your last week of work.
+     
+You have commited $%d in tax fraud.
+     
+You must commit $%d today."
 horizontal_alignment = 1
 vertical_alignment = 1

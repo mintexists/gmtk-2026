@@ -60,7 +60,7 @@ func render(target:int,equation:Parentheses) -> void:
 			var lbl = numberLabel.instantiate()
 			textContainer.get_child(target).add_child(lbl)
 			lbl.setup(")", "1")
-	if target == 0:
+	if target == 0 and equation.root:
 		var lbl = numberLabel.instantiate()
 		textContainer.get_child(target).add_child(lbl)
 		lbl.setup("= %d" % pemdasAnswer, "1")
