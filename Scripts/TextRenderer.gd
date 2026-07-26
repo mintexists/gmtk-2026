@@ -51,7 +51,7 @@ func render(target:int,equation:Parentheses) -> void:
 		elif token is Number:
 			var lbl = numberLabel.instantiate()
 			textContainer.get_child(target).add_child(lbl)
-			lbl.setup(Number.tostr(token.value), Number.tostr(token.exponent))
+			lbl.setup(Number.tostr_truncated(token.value), Number.tostr_truncated(token.exponent))
 		elif token is Operator:
 			var lbl = numberLabel.instantiate()
 			textContainer.get_child(target).add_child(lbl)

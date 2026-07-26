@@ -124,7 +124,6 @@ layout_mode = 2
 [node name="Display" type="Label" parent="Calculator/HBoxContainer" unique_id=329595540]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3a7x4")
-text = "123"
 label_settings = SubResource("LabelSettings_xpb8p")
 horizontal_alignment = 2
 vertical_alignment = 1

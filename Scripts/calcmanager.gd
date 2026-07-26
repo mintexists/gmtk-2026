@@ -16,6 +16,7 @@ func lock():
 func unlock():
 	isLocked = false
 	EnterButton.disabled = false
+	Display.text = ""
 
 func _ready() -> void:
 	edmas_container.child_order_changed.connect(func()->void: draggable_moved.emit())

@@ -4,6 +4,8 @@ var value: float
 var exponent: float
 static func tostr(v: float):
 	return String.num(v).trim_suffix(".0")
+static func tostr_truncated(v: float):
+	return ("%.2f" % v).trim_suffix(".0").trim_suffix(".00")
 func _init(v: float, e: float = 1):
 	value = v
 	exponent = e
