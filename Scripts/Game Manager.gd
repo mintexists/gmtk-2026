@@ -18,6 +18,9 @@ var currentPaper: paper
 @export
 var equationSheets : Array[BunchaEquations]
 
+var target_number_for_day = [3, 5, 6, 7, 9]
+var target_equations: Array[String]
+
 var current_equation:String 
 
 func _ready() -> void:
@@ -43,6 +46,15 @@ func _process(delta: float) -> void:
 			if currentState != prevState:
 				prevState = currentState
 				print("Executing Day Start")
+				target_equations.clear()
+				var target_score = 0
+				for i in target_number_for_day[currentDay]:
+					var equation = equationSheets.pick_random().equations.pick_random()
+					target_score += score.max_score(Evaluator.parse_equation_string(equation))
+					target_equations.append(equation)
+				score.target_score = target_score
+				print(target_score, " target score")
+				score.reset_current_score()
 				await day_panel.showDay(currentDay)
 				clock.start(clockTime)
 				currentState = GameState.NEXT_PAPER
@@ -70,7 +82,7 @@ func _process(delta: float) -> void:
 				calculator.lock()
 				print("Executing Score State")
 				var result = score.score(calculator.get_order(),Evaluator.parse_equation_string(current_equation))
-				
+				await score_overlay.display(determine_result_display(result))
 				#await score_points()
 				currentState = GameState.NEXT_PAPER
 		GameState.DAY_END:
@@ -88,18 +100,24 @@ func score_points():
 	pass
 
 func get_equation() -> String:
-	var sheet = randi() % equationSheets.size()
-	var sheetSize = equationSheets[sheet].equations.size()
-	return equationSheets[sheet].equations.pick_random()
+	if len(target_equations) > 0:
+		return target_equations.pop_back()
+	else:
+		return equationSheets.pick_random().equations.pick_random()
+	#var sheet = randi() % equationSheets.size()
+	#var sheetSize = equationSheets[sheet].equations.size()
+	#return equationSheets[sheet].equations.pick_random()
 	
 func determine_result_display(result:float)->String:
+	print(result)
 	if(result <= 0.1):
 		return "You did Nothing!"
-	elif(result<= 0.2):
+	elif(result <= 0.2):
 		return "Horrible Job :)"
-	elif(result<= 0.5):
+	elif(result <= 0.5):
 		return "Just Ok.."
-	elif(result<= 0.8):
+	elif(result < 1.0):
 		return "Great Job!"
-
+	elif(result == 1.0):
+		return "FULL SCORE!!!!"
 	return ""

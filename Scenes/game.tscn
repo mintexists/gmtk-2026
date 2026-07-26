@@ -59,10 +59,10 @@ script = ExtResource("3_3dryh")
 clock = NodePath("../../../Day Timer")
 
 [node name="Calculator" parent="." unique_id=614944826 instance=ExtResource("8_v158k")]
-offset_left = 773.0
-offset_top = 126.0
-offset_right = 1071.0
-offset_bottom = 573.0
+offset_left = 776.0
+offset_top = 138.0
+offset_right = 1074.0
+offset_bottom = 585.0
 offset_transform_enabled = true
 offset_transform_rotation = 0.06981317
 offset_transform_visual_only = false
@@ -71,7 +71,7 @@ offset_transform_visual_only = false
 position = Vector2(26, 319)
 
 [node name="Score" parent="." unique_id=850901446 instance=ExtResource("13_1phco")]
-position = Vector2(290, 10)
+position = Vector2(217, 9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=571024433]
 

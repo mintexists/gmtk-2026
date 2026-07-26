@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://2l28l67y45kv" path="res://score.gd" id="1_t1x8i"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibi8c"]
+bg_color = Color(0, 0, 0, 0.08235294)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o3uq"]
 bg_color = Color(0.11558022, 0.11558025, 0.11558015, 1)
 border_width_left = 3
@@ -16,26 +23,32 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_t1x8i"]
 font_size = 24
-font_color = Color(1, 0, 0, 1)
+font_color = Color(0.3499999, 1, 0, 1)
 outline_size = 6
-outline_color = Color(0.5430403, 1.3356283e-06, 4.813075e-07, 1)
+outline_color = Color(0.30599996, 0.54, 0, 1)
 
 [node name="Score" type="Node2D" unique_id=1803901382 node_paths=PackedStringArray("label")]
 script = ExtResource("1_t1x8i")
 label = NodePath("PanelContainer/Label")
+message = "Today's Tax Fraud: $%d
+Target: $%d
+Remaining: $%d"
 
 [node name="Panel" type="Panel" parent="." unique_id=109004100]
-offset_right = 260.0
-offset_bottom = 230.0
+offset_right = 454.0
+offset_bottom = 204.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ibi8c")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=495513124]
-offset_right = 260.0
-offset_bottom = 177.0
+offset_right = 454.0
+offset_bottom = 153.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2o3uq")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=1116570694]
 layout_mode = 2
-text = "$50/100"
+text = "Today's Tax Fraud: $5000
+Target: $100
+Remaining: $50"
 label_settings = SubResource("LabelSettings_t1x8i")
 horizontal_alignment = 1
 vertical_alignment = 1
